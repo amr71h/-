@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store | MANAL STUDIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ============================================================
+           DESIGN SYSTEM & VARIABLES (MERGED: Black + Dark Brown + Cream)
+           ============================================================ */
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --cream: #f3eee8;
+            --brown-deep: #1A0F0A;
+            --brown-mid: #2C1A12;
+            --brown-accent: #8B5A3C;
+            --brown-light: #C49A6C;
+            --line: rgba(196, 154, 108, 0.22);
+            --serif: 'Playfair Display', serif;
+            --sans: 'Montserrat', sans-serif;
+            --arabic: 'Noto Sans Arabic', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--sans);
+            font-weight: 300;
+            line-height: 1.55;
+            background: linear-gradient(180deg, #000000 0%, #1A0F0A 50%, #0D0705 100%);
+            color: var(--cream);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html[lang="ar"] body { font-family: var(--arabic); direction: rtl; }
+        a { color: inherit; text-decoration: none; transition: all 0.3s ease; }
+        img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+        /* ============================================================
+           HEADER (PROFESSIONAL - AWWWARDS LEVEL)
+           ============================================================ */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 88px;
+            padding: 0 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--cream);
+            background: linear-gradient(180deg, #000000 0%, #1A0F0A 100%);
+            border-bottom: 1px solid rgba(196, 154, 108, 0.15);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: headerFadeIn 0.8s ease-out;
+        }
+
+        @keyframes headerFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header.scrolled {
+            background: linear-gradient(180deg, rgba(0,0,0,0.98) 0%, rgba(26,15,10,0.98) 100%);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom-color: rgba(196, 154, 108, 0.35);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex: 1;
+        }
+
+        /* === ANIMATED MENU TOGGLE === */
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .menu-toggle::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: rgba(139, 90, 60, 0.2);
+            opacity: 0;
+            transform: scale(0.7);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .menu-toggle:active::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 26px;
+            height: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-icon span {
+            display: block;
+            height: 2px;
+            background-color: var(--cream);
+            border-radius: 2px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            transform-origin: center;
+        }
+
+        .menu-icon span:nth-child(1) { width: 100%; }
+        .menu-icon span:nth-child(2) { width: 70%; }
+        .menu-icon span:nth-child(3) { width: 100%; }
+
+        .menu-toggle:active .menu-icon span { background-color: var(--brown-light); }
+        .menu-toggle:active .menu-icon span:nth-child(2) { width: 100%; }
+
+        .menu-toggle.is-open .menu-icon span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+            background-color: var(--brown-light);
+        }
+        .menu-toggle.is-open .menu-icon span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        .menu-toggle.is-open .menu-icon span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+            background-color: var(--brown-light);
+        }
+
+        /* === LANGUAGE PICKER === */
+        .language-picker { position: relative; }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(196, 154, 108, 0.3);
+            border-radius: 30px;
+            padding: 0.5rem 1rem;
+            color: var(--cream);
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            letter-spacing: 0.08em;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .lang-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(196, 154, 108, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .lang-btn:active::before { transform: translateX(100%); }
+        .lang-btn:active {
+            background: rgba(139, 90, 60, 0.2);
+            border-color: var(--brown-light);
+            transform: scale(0.97);
+        }
+
+        .lang-globe {
+            font-size: 0.85rem;
+            color: var(--brown-light);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .lang-btn:active .lang-globe { transform: rotate(180deg); }
+        .lang-current { font-weight: 500; min-width: 20px; text-align: center; }
+        .lang-chevron { font-size: 0.55rem; transition: transform 0.4s ease; opacity: 0.7; }
+        .lang-btn[aria-expanded="true"] .lang-chevron { transform: rotate(180deg); }
+
+        .lang-dropdown {
+            position: absolute;
+            top: calc(100% + 0.75rem);
+            left: 0;
+            min-width: 180px;
+            padding: 0.5rem;
+            background: linear-gradient(180deg, #000000 0%, #1A0F0A 100%);
+            border: 1px solid rgba(139, 90, 60, 0.35);
+            border-radius: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px) scale(0.95);
+            transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 100;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
+
+        .lang-dropdown.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            width: 100%;
+            padding: 0.7rem 0.9rem;
+            border: 0;
+            border-radius: 8px;
+            background: transparent;
+            color: var(--cream);
+            font: 0.8rem var(--sans);
+            letter-spacing: 0.05em;
+            text-align: start;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .lang-option:active {
+            background: rgba(139, 90, 60, 0.25);
+            color: var(--brown-light);
+        }
+
+        .lang-flag { font-size: 1rem; line-height: 1; }
+        .lang-option span:nth-child(2) { flex: 1; }
+        .lang-check {
+            opacity: 0;
+            color: var(--brown-light);
+            font-size: 0.7rem;
+            transition: opacity 0.3s ease;
+        }
+        .lang-option.selected .lang-check { opacity: 1; }
+        .lang-option.selected {
+            color: var(--brown-light);
+            background: rgba(139, 90, 60, 0.15);
+        }
+
+        /* === LOGO (Opposite side from the controls) === */
+        .logo {
+            position: absolute;
+            right: 5vw;
+            left: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        html[lang="sv"] .logo {
+            right: 5vw;
+            left: auto;
+        }
+
+        html[lang="ar"] .logo {
+            right: auto;
+            left: 5vw;
+        }
+
+        .logo a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: var(--cream);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(196, 154, 108, 0.4);
+            border-radius: 50%;
+            color: var(--brown-light);
+            font-size: 1rem;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(139, 90, 60, 0.25);
+            transform: scale(0);
+            border-radius: 50%;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .logo a:active .logo-icon::before { transform: scale(1); }
+        .logo a:active .logo-icon {
+            border-color: var(--brown-light);
+            transform: rotate(360deg);
+            color: var(--cream);
+        }
+
+        .logo-text { display: flex; flex-direction: column; line-height: 0.9; }
+
+        .logo-text strong {
+            font-family: var(--serif);
+            font-size: clamp(1.4rem, 2vw, 2rem);
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: block;
+            transition: color 0.4s ease;
+            color: var(--cream);
+        }
+
+        .logo-text small {
+            font-family: var(--sans);
+            font-size: 0.52rem;
+            letter-spacing: 0.52em;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-top: 0.2rem;
+            display: block;
+            color: var(--brown-light);
+            transition: letter-spacing 0.4s ease, color 0.4s ease;
+        }
+
+        .logo a:active .logo-text strong { color: var(--brown-light); }
+        .logo a:active .logo-text small { letter-spacing: 0.7em; }
+
+        .header-right { flex: 1; }
+
+        /* === HEADER RESPONSIVE === */
+        @media (max-width: 760px) {
+            .header { height: 80px; padding: 0 4vw; }
+            .header-left { gap: 0.8rem; }
+            .menu-toggle { width: 40px; height: 40px; padding: 8px; }
+            .lang-btn { padding: 0.4rem 0.8rem; font-size: 0.75rem; gap: 0.4rem; }
+            .lang-globe { font-size: 0.75rem; }
+            .lang-chevron { font-size: 0.5rem; }
+            .lang-dropdown { min-width: 160px; left: -20px; }
+            .logo-icon { width: 36px; height: 36px; font-size: 0.85rem; }
+            .logo-text strong { font-size: 1.3rem; letter-spacing: 0.1em; }
+            .logo-text small { font-size: 0.45rem; letter-spacing: 0.4em; }
+        }
+
+        /* ============================================================
+           INTRO
+           ============================================================ */
+        .intro { padding: 96px 6vw 72px; text-align: center; color: var(--cream); }
+        .eyebrow {
+            margin-bottom: 18px;
+            font-size: 11px;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--brown-light);
+        }
+        h1, h2, h3 {
+            font-family: var(--serif);
+            font-weight: 400;
+            line-height: 1.08;
+            color: var(--cream);
+        }
+        h1 {
+            max-width: 760px;
+            margin: auto;
+            font-size: clamp(42px, 7vw, 86px);
+            text-transform: uppercase;
+        }
+        .intro p {
+            max-width: 570px;
+            margin: 28px auto 0;
+            font-size: 14px;
+            color: rgba(243, 238, 232, 0.75);
+        }
+
+        /* ============================================================
+           PRODUCTS
+           ============================================================ */
+        .products {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 5vw 100px;
+            color: var(--cream);
+        }
+        .product {
+            display: grid;
+            grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
+            min-height: 520px;
+            border-top: 1px solid var(--line);
+        }
+        .product:nth-child(even) .product-image { order: 2; }
+        .product-image { min-height: 520px; overflow: hidden; background: var(--brown-mid); }
+        .product-info { display: flex; flex-direction: column; justify-content: center; padding: 65px clamp(30px, 7vw, 105px); }
+        .product-number {
+            margin-bottom: 22px;
+            font-size: 11px;
+            letter-spacing: .25em;
+            color: var(--brown-light);
+        }
+        h2 { margin-bottom: 22px; font-size: clamp(30px, 4vw, 58px); color: var(--cream); }
+        .product-info h3 { margin: -7px 0 24px; font-size: 20px; color: var(--brown-light); }
+        .product-info p { max-width: 560px; margin-bottom: 16px; font-size: 14px; color: rgba(243, 238, 232, 0.75); }
+
+        .price {
+            align-self: flex-start;
+            margin-top: 25px;
+            padding: 15px 27px;
+            border: 1px solid var(--brown-light);
+            background: transparent;
+            color: var(--cream);
+            font-family: var(--sans);
+            font-size: 12px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            transition: .25s;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .price:hover, .price:active {
+            background: var(--brown-accent);
+            color: var(--white);
+            border-color: var(--brown-accent);
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            padding: 72px 6vw 90px;
+            background: linear-gradient(180deg, #000000 0%, #1A0F0A 100%);
+            color: var(--cream);
+            text-align: center;
+            border-top: 1px solid rgba(196, 154, 108, 0.25);
+        }
+        .back {
+            display: inline-block;
+            margin-bottom: 38px;
+            font-size: 25px;
+            color: var(--cream);
+            transition: all 0.3s ease;
+        }
+        .back:hover, .back:active { color: var(--brown-light); transform: translateY(-5px); }
+
+        .socials { display: flex; justify-content: center; gap: 28px; margin-bottom: 30px; font-size: 22px; }
+        .socials a {
+            color: var(--cream);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(196, 154, 108, 0.45);
+            border-radius: 50%;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .socials a:hover, .socials a:active {
+            color: var(--brown-light);
+            border-color: var(--brown-light);
+            transform: translateY(-3px);
+            background: rgba(139, 90, 60, 0.2);
+        }
+        .footer p { font-size: 13px; margin-top: 5px; color: var(--cream); }
+        .footer p:last-child { color: rgba(243, 238, 232, 0.7); }
+
+        /* ============================================================
+           OVERLAY MENU
+           ============================================================ */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10vw;
+            background: linear-gradient(180deg, #000000 0%, #1A0F0A 50%, #000000 100%);
+            color: var(--cream);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s;
+        }
+        .overlay.open { opacity: 1; pointer-events: auto; }
+        .close {
+            position: absolute;
+            top: 24px;
+            right: 6vw;
+            border: 0;
+            background: none;
+            color: var(--cream);
+            font-size: 42px;
+            font-weight: 200;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .close:hover, .close:active { color: var(--brown-light); transform: rotate(90deg); }
+
+        .overlay a {
+            width: max-content;
+            margin: 12px 0;
+            font-size: 25px;
+            color: var(--cream);
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease, padding 0.3s ease;
+        }
+        .overlay.open a {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .overlay.open a:nth-child(1) { transition-delay: 0.05s; }
+        .overlay.open a:nth-child(2) { transition-delay: 0.10s; }
+        .overlay.open a:nth-child(3) { transition-delay: 0.15s; }
+        .overlay.open a:nth-child(4) { transition-delay: 0.20s; }
+        .overlay.open a:nth-child(5) { transition-delay: 0.25s; }
+        .overlay.open a:nth-child(6) { transition-delay: 0.30s; }
+        .overlay.open a:nth-child(7) { transition-delay: 0.35s; }
+        .overlay.open a:nth-child(8) { transition-delay: 0.40s; }
+        .overlay a:hover, .overlay a:active {
+            color: var(--brown-light);
+            padding-left: 15px;
+        }
+        .overlay .socials { justify-content: flex-start; margin-top: 35px; }
+
+        /* ============================================================
+           SHOP MAIN
+           ============================================================ */
+        .shop-main {
+            background: linear-gradient(180deg, #000000 0%, #1A0F0A 100%);
+            color: var(--cream);
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+        .shop-shell { width: min(100%, 1180px); margin: 0 auto; padding: clamp(52px, 8vw, 110px) 5vw; }
+
+        .shop-opening {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(16px, 2vw, 28px);
+            margin-bottom: clamp(76px, 11vw, 150px);
+        }
+        .shop-opening figure {
+            position: relative;
+            min-height: clamp(285px, 42vw, 535px);
+            overflow: hidden;
+            background: var(--brown-mid);
+        }
+        .shop-opening img, .shop-media img { width: 100%; height: 100%; object-fit: cover; }
+        .shop-opening figcaption {
+            position: absolute;
+            right: 18px;
+            bottom: 17px;
+            margin: 0;
+            color: var(--cream);
+            font: 400 11px/1 Arial, sans-serif;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, .48);
+            background: rgba(139, 90, 60, 0.4);
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+
+        .shop-product {
+            display: grid;
+            grid-template-columns: minmax(0, 1.54fr) minmax(260px, .9fr);
+            gap: clamp(36px, 8vw, 120px);
+            align-items: center;
+            padding: clamp(64px, 10vw, 140px) 0;
+            border-top: 1px solid var(--line);
+        }
+        .shop-product--reverse { grid-template-columns: minmax(260px, .9fr) minmax(0, 1.54fr); }
+        .shop-product--reverse .shop-media { order: 2; }
+        .shop-product--wide-copy { grid-template-columns: minmax(0, 1fr); max-width: 845px; margin: 0 auto; }
+        .shop-media {
+            min-height: clamp(300px, 45vw, 650px);
+            overflow: hidden;
+            background: var(--brown-mid);
+        }
+        .shop-media--square { aspect-ratio: 1/1; min-height: 0; }
+        .shop-copy { max-width: 420px; }
+        .shop-product--reverse .shop-copy { justify-self: end; }
+        .shop-product--wide-copy .shop-copy { max-width: 845px; }
+
+        .shop-kicker {
+            margin: 0 0 18px;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--brown-light);
+        }
+        .shop-copy h1, .shop-copy h2 {
+            margin: 0 0 18px;
+            color: var(--cream);
+            font-family: 'Roboto', Arial, sans-serif;
+            font-size: clamp(27px, 3.25vw, 45px);
+            font-weight: 400;
+            line-height: 1.08;
+            letter-spacing: -.035em;
+            text-transform: none;
+        }
+        .shop-copy h1 { font-size: clamp(33px, 4.5vw, 62px); }
+        .shop-copy h3 {
+            margin: 0 0 27px;
+            font: 400 15px/1.35 Arial, sans-serif;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--brown-light);
+        }
+        .shop-copy p { margin: 0 0 16px; font: 400 15px/1.65 Arial, sans-serif; color: rgba(243, 238, 232, 0.75); }
+        .shop-copy ul { display: grid; gap: 9px; margin: 20px 0 0; }
+        .shop-copy li { margin: 0; font: 400 15px/1.6 Arial, sans-serif; color: rgba(243, 238, 232, 0.75); }
+
+        .shop-price {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 132px;
+            margin-top: 22px;
+            padding: 15px 24px;
+            border: 1px solid var(--brown-light);
+            color: var(--cream);
+            font: 400 13px/1 Arial, sans-serif;
+            letter-spacing: .08em;
+            transition: background .2s, color .2s, border-color .2s, transform 0.15s;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .shop-price:hover, .shop-price:active {
+            background: var(--brown-accent);
+            color: var(--white);
+            border-color: var(--brown-accent);
+        }
+
+        .shop-pair {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(20px, 5vw, 74px);
+            padding: clamp(64px, 10vw, 140px) 0;
+            border-top: 1px solid var(--line);
+        }
+        .shop-pair .shop-copy { max-width: none; }
+        .shop-pair .shop-media { min-height: clamp(270px, 37vw, 510px); margin-bottom: 30px; }
+
+        .preset-guide {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(260px, .85fr);
+            gap: clamp(36px, 7vw, 100px);
+            align-items: center;
+            padding: clamp(74px, 11vw, 150px) 0;
+            border-top: 1px solid var(--line);
+        }
+        .preset-guide h2 {
+            margin: 0 0 26px;
+            font: 400 clamp(31px, 4vw, 52px)/1.1 Arial, sans-serif;
+            letter-spacing: -.035em;
+            color: var(--cream);
+        }
+        .preset-guide ol {
+            display: grid;
+            gap: 12px;
+            padding-left: 21px;
+            font: 400 15px/1.64 Arial, sans-serif;
+            color: rgba(243, 238, 232, 0.75);
+        }
+        .preset-guide .shop-media { min-height: clamp(300px, 40vw, 590px); }
+
+        .shop-contact {
+            padding: clamp(70px, 10vw, 135px) 0 0;
+            border-top: 1px solid var(--line);
+        }
+        .shop-contact-inner { max-width: 740px; margin: 0 auto; text-align: center; }
+        .shop-contact h2 {
+            margin: 0 0 18px;
+            font: 400 clamp(31px, 4vw, 52px)/1.1 Arial, sans-serif;
+            letter-spacing: -.035em;
+            color: var(--cream);
+        }
+        .shop-contact p {
+            margin: 0 auto 35px;
+            max-width: 550px;
+            font: 400 15px/1.65 Arial, sans-serif;
+            color: rgba(243, 238, 232, 0.75);
+        }
+
+        .shop-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; text-align: left; }
+        .shop-form input, .shop-form textarea {
+            width: 100%;
+            padding: 15px 0;
+            border: 0;
+            border-bottom: 1px solid rgba(196, 154, 108, 0.5);
+            outline: none;
+            background: transparent;
+            color: var(--cream);
+            font: 400 14px Arial, sans-serif;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .shop-form input:focus, .shop-form textarea:focus {
+            border-bottom-color: var(--brown-light);
+            box-shadow: 0 0 0 2px rgba(196, 154, 108, 0.15);
+            border-radius: 2px;
+        }
+        .shop-form input::placeholder, .shop-form textarea::placeholder {
+            color: rgba(243, 238, 232, 0.4);
+        }
+        .shop-form textarea, .shop-form .shop-form-wide, .shop-form .shop-consent { grid-column: 1/-1; }
+        .shop-form textarea { min-height: 125px; resize: vertical; }
+        .shop-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font: 400 12px/1.55 Arial, sans-serif;
+            color: rgba(243, 238, 232, 0.7);
+        }
+        .shop-consent input { width: 16px; margin-top: 2px; accent-color: var(--brown-accent); }
+
+        .shop-submit {
+            justify-self: center;
+            margin-top: 8px;
+            padding: 16px 34px;
+            border: 1px solid var(--brown-light);
+            background: transparent;
+            color: var(--cream);
+            font: 400 12px Arial, sans-serif;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background .2s, color .2s, border-color .2s, transform 0.15s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .shop-submit:hover, .shop-submit:active {
+            background: var(--brown-accent);
+            color: var(--white);
+            border-color: var(--brown-accent);
+        }
+
+        /* ============================================================
+           ADVANCED ANIMATIONS & INTERACTIONS
+           ============================================================ */
+
+        /* === PRELOADER === */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: linear-gradient(180deg, #000000 0%, #1A0F0A 50%, #000000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .preloader.hidden { opacity: 0; visibility: hidden; }
+        .preloader-content { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+        .preloader-logo {
+            font-family: var(--serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            color: var(--cream);
+            text-transform: uppercase;
+            animation: preloaderFadeIn 1s ease-out;
+        }
+        .preloader-sub {
+            font-family: var(--sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.6em;
+            color: var(--brown-light);
+            text-transform: uppercase;
+            animation: preloaderFadeIn 1s ease-out 0.3s backwards;
+        }
+        .preloader-line {
+            width: 80px;
+            height: 1px;
+            background: var(--brown-light);
+            margin-top: 1rem;
+            animation: preloaderLine 1.5s ease-in-out infinite;
+        }
+        @keyframes preloaderFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes preloaderLine {
+            0%, 100% { width: 40px; opacity: 0.5; }
+            50% { width: 80px; opacity: 1; }
+        }
+
+        /* === SCROLL PROGRESS BAR === */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--brown-accent), var(--brown-light));
+            z-index: 9998;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px rgba(196, 154, 108, 0.5);
+        }
+
+        /* === SCROLL REVEAL === */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.revealed { opacity: 1; transform: translateY(0); }
+
+        /* === BACK TO TOP === */
+        .back-to-top-btn {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 900;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid var(--brown-light);
+            background: linear-gradient(180deg, #000000 0%, #1A0F0A 100%);
+            color: var(--brown-light);
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            -webkit-tap-highlight-color: transparent;
+        }
+        .back-to-top-btn.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .back-to-top-btn:active { transform: scale(0.9); background: var(--brown-accent); color: var(--white); }
+
+        /* === TOUCH FEEDBACK === */
+        .price:active, .shop-price:active, .shop-submit:active, .menu-toggle:active, .overlay a:active, .socials a:active, .back:active {
+            transform: scale(0.95);
+        }
+
+        /* === RIPPLE EFFECT === */
+        .ripple { position: relative; overflow: hidden; }
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(196, 154, 108, 0.4);
+            transform: scale(0);
+            animation: rippleAnimation 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            pointer-events: none;
+        }
+        @keyframes rippleAnimation {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+        /* === CARD TILT === */
+        .tilt-card {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+        }
+        .tilt-card:active {
+            transform: perspective(800px) rotateX(2deg) rotateY(2deg) scale(0.98);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* === GRADIENT TEXT === */
+        .gradient-text {
+            background: linear-gradient(90deg, var(--cream), var(--brown-light), var(--cream));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s linear infinite;
+        }
+        @keyframes gradientShift {
+            to { background-position: 200% center; }
+        }
+
+        /* === PULSE === */
+        .pulse-soft {
+            animation: pulseSoft 2.5s ease-in-out infinite;
+        }
+        @keyframes pulseSoft {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(196, 154, 108, 0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(196, 154, 108, 0); }
+        }
+
+        /* === PAGE TRANSITION === */
+        .page-transition { animation: pageFadeIn 0.8s ease-out; }
+        @keyframes pageFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* === STAGGERED CARD ENTRANCE === */
+        .card-entrance {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: cardEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        .card-entrance:nth-child(1) { animation-delay: 0.1s; }
+        .card-entrance:nth-child(2) { animation-delay: 0.2s; }
+        .card-entrance:nth-child(3) { animation-delay: 0.3s; }
+        .card-entrance:nth-child(4) { animation-delay: 0.4s; }
+        .card-entrance:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes cardEntrance {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === LAZY FADE === */
+        .lazy-fade {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: scale(1.05);
+        }
+        .lazy-fade.loaded { opacity: 1; transform: scale(1); }
+
+        /* === SKELETON === */
+        .skeleton {
+            background: linear-gradient(90deg, 
+                rgba(196, 154, 108, 0.05) 25%, 
+                rgba(196, 154, 108, 0.15) 50%, 
+                rgba(196, 154, 108, 0.05) 75%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* === SECTION DIVIDER === */
+        .divider-animate { position: relative; overflow: hidden; }
+        .divider-animate::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--brown-light), transparent);
+            transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .divider-animate.revealed::before { width: 100%; }
+
+        /* ============================================================
+           RESPONSIVE (MOBILE)
+           ============================================================ */
+        @media (max-width:760px) {
+            .header { height:80px; padding:0 6vw; }
+            .intro { padding:72px 7vw 58px; }
+            h1 { font-size:42px; }
+            .intro p { font-size:13px; }
+            .product, .product:nth-child(even) { display:flex; flex-direction:column; }
+            .product-image, .product:nth-child(even) .product-image { order:0; min-height:340px; height:340px; }
+            .product-info { min-height:400px; padding:48px 7vw 60px; }
+            h2 { font-size:37px; }
+            .product-info p { font-size:13px; }
+            .price { margin-top:15px; }
+
+            .shop-shell { padding:54px 7vw 76px; }
+            .shop-opening, .shop-product, .shop-product--reverse, .shop-pair, .preset-guide { grid-template-columns:1fr; }
+            .shop-opening { margin-bottom:68px; }
+            .shop-opening figure { min-height:250px; }
+            .shop-product, .shop-pair { gap:30px; padding:70px 0; }
+            .shop-product--reverse .shop-media { order:0; }
+            .shop-product--reverse .shop-copy { justify-self:auto; }
+            .shop-media, .shop-pair .shop-media, .preset-guide .shop-media { min-height:350px; }
+            .shop-copy { max-width:none; }
+            .shop-form { grid-template-columns:1fr; }
+            .preloader-logo { font-size: 2rem; }
+            .back-to-top-btn { bottom: 1rem; right: 1rem; width: 44px; height: 44px; }
+            .reveal-on-scroll { transform: translateY(30px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+        }
+
+        /* === REDUCED MOTION === */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-on-scroll { opacity: 1; transform: none; transition: none; }
+            .preloader-line { animation: none; }
+            .gradient-text { animation: none; }
+            .pulse-soft { animation: none; }
+            .card-entrance { opacity: 1; transform: none; animation: none; }
+            .header { animation: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= SCROLL PROGRESS BAR ================= -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header" id="top">
+        <div class="header-left">
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+                <span class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </div>
+        <div class="logo">
+            <a href="index.html" aria-label="MANAL STUDIO home">
+                <span class="logo-icon">
+                    <i class="fas fa-camera-retro"></i>
+                </span>
+                <span class="logo-text">
+                    <strong>MANAL</strong>
+                    <small>STUDIO</small>
+                </span>
+            </a>
+        </div>
+        <div class="header-right" aria-hidden="true"></div>
+    </header>
+
+    <!-- ================= OVERLAY MENU ================= -->
+    <div class="overlay" id="menuPanel" aria-hidden="true">
+        <button class="close" id="closeButton" aria-label="Close menu">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="store.html">Store</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="history.html">History</a>
+        <a href="service.html">Service</a>
+        <a href="comments.html">Comments</a>
+        <a href="contacts.html">Contacts</a>
+        <div class="socials">
+            <a href="mailto:alkamelamr1@gmail.com" aria-label="Email Manal Studio"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+    </div>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="shop-main">
+        <section class="intro" hidden>
+            <p class="eyebrow">Manal Studio Store</p>
+            <h1>Tools for your visual story</h1>
+            <p>Signature presets, color grading, and professional photography consulting for creatives who want their work to feel unforgettable.</p>
+        </section>
+
+        <section class="products" hidden>
+            <article class="product">
+                <div class="product-image"><img src="assets/images/image-28315e627669.png" alt="White Bridge presets"></div>
+                <div class="product-info">
+                    <span class="product-number">01</span>
+                    <h2>White Bridge+<br>All in One</h2>
+                    <h3>HOT SALE + Spring WED</h3>
+                    <p>All my signature presets in one pack. A versatile collection for 12 photo shootings, designed to bring clean tones and a refined wedding mood to every frame.</p>
+                    <a class="price" href="contacts.html">€20,00</a>
+                </div>
+            </article>
+            <article class="product">
+                <div class="product-image"><img src="assets/images/image-00379ff8f7ce.jpg" alt="Photography consulting"></div>
+                <div class="product-info">
+                    <span class="product-number">02</span>
+                    <h2>Professional<br>Photography Consulting</h2>
+                    <p>Personalized guidance for photographers who want to improve their business, visual style, client experience, website, pricing, editing workflow, and brand.</p>
+                    <a class="price" href="contacts.html">500-1000 EUR</a>
+                </div>
+            </article>
+            <article class="product">
+                <div class="product-image"><img src="assets/images/image-305c06cf395e.jpg" alt="Wedding color grading tutorial"></div>
+                <div class="product-info">
+                    <span class="product-number">03</span>
+                    <h2>Full Wedding<br>Color Grading Workflow</h2>
+                    <p>A complete step-by-step video tutorial from RAW to a premium final image. Learn clean colors, natural skin tones, atmosphere, and a recognizable editing style. RAW files and signature presets included.</p>
+                    <a class="price" href="contacts.html">350€ → 210€</a>
+                </div>
+            </article>
+            <article class="product">
+                <div class="product-image"><img src="assets/images/image-a5ea299c2611.png" alt="Presets and RAW files"></div>
+                <div class="product-info">
+                    <span class="product-number">04</span>
+                    <h2>Presets from 3 Photoshoots</h2>
+                    <p>Presets created across five locations with different light, mood, and environments. Includes RAW files for testing, clean colors, depth, and natural skin tones.</p>
+                    <a class="price" href="contacts.html">€40</a>
+                </div>
+            </article>
+            <article class="product">
+                <div class="product-image"><img src="assets/images/image-d83becfa7d53.jpg" alt="Ceremony presets"></div>
+                <div class="product-info">
+                    <span class="product-number">05</span>
+                    <h2>Ivi Ceremony</h2>
+                    <p>Thirteen carefully curated moods for weddings, couples, elopements, and family celebrations. Add depth, rich tones, and an emotional atmosphere to every image.</p>
+                    <a class="price" href="contacts.html">€19,00</a>
+                </div>
+            </article>
+        </section>
+
+        <div class="shop-shell">
+            <section class="shop-opening" aria-label="Featured presets">
+                <figure><img src="assets/images/image-305c06cf395e.jpg" alt="White Bridge preset before colour grading"><figcaption data-en="Before" data-ar="قبل" data-sv="Före">Before</figcaption></figure>
+                <figure><img src="assets/images/image-00379ff8f7ce.jpg" alt="White Bridge preset after colour grading"><figcaption data-en="After" data-ar="بعد" data-sv="Efter">After</figcaption></figure>
+            </section>
+
+            <article class="shop-product shop-product--wide-copy">
+                <div class="shop-copy">
+                    <h1 data-en="White Bridge+All in One" data-ar="White Bridge+All in One" data-sv="White Bridge+All in One">White Bridge+All in One</h1>
+                    <h3 data-en="HOT SALE + Spring WED" data-ar="عرض ساخن + زفاف الربيع" data-sv="HET REA + Vårbröllop">HOT SALE + Spring WED</h3>
+                    <p data-en="All My Signature presets in One Pack" data-ar="جميع إعداداتي المسبقة المميزة في حزمة واحدة" data-sv="Alla mina signaturförinställningar i ett paket">All My Signature presets in One Pack</p>
+                    <p data-en="(12 Photo Shootings)" data-ar="(12 جلسة تصوير)" data-sv="(12 fotograferingar)">(12 Photo Shootings)</p>
+                    <a class="shop-price" href="contacts.html">€20,00</a>
+                </div>
+            </article>
+
+            <article class="shop-product shop-product--reverse">
+                <div class="shop-media"><img src="assets/images/image-a5ea299c2611.png" alt="Professional photography consultation"></div>
+                <div class="shop-copy">
+                    <p class="shop-kicker" data-en="Professional consultation" data-ar="استشارة احترافية" data-sv="Professionell konsultation">Professional consultation</p>
+                    <h2 data-en="Professional consultation for photographers" data-ar="استشارة احترافية للمصورين" data-sv="Professionell konsultation för fotografer">Professional consultation for photographers</h2>
+                    <p data-en="Personal professional consultation for photographers, videographers, and creative specialists who want to strengthen their visual style and the commercial value of their work." data-ar="استشارة احترافية فردية للمصورين ومصوري الفيديو والمبدعين الراغبين في تقوية أسلوبهم البصري والقيمة التجارية لأعمالهم." data-sv="Personlig professionell konsultation för fotografer, videografer och kreatörer som vill stärka sin visuella stil och sitt arbetes kommersiella värde.">Personal professional consultation for photographers, videographers, and creative specialists who want to strengthen their visual style and the commercial value of their work.</p>
+                    <p data-en="We review your portfolio, editing, colour grading, workflow, social media presence, pricing, and positioning — with practical recommendations and a clear plan for growth." data-ar="نراجع بورتفوليوك والتحرير وتدرج الألوان وسير العمل وحضورك على شبكات التواصل والتسعير والتموضع، مع توصيات عملية وخطة نمو واضحة." data-sv="Vi går igenom din portfolio, redigering, färgsättning, arbetsflöde, närvaro i sociala medier, prissättning och positionering — med praktiska rekommendationer och en tydlig tillväxtplan.">We review your portfolio, editing, colour grading, workflow, social media presence, pricing, and positioning — with practical recommendations and a clear plan for growth.</p>
+                    <a class="shop-price" href="contacts.html">500-1000 EUR</a>
+                </div>
+            </article>
+
+            <article class="shop-product shop-product--wide-copy">
+                <div class="shop-copy">
+                    <h2 data-en="Complete wedding colour grading workflow — step-by-step video lesson" data-ar="سير عمل كامل لتدرج ألوان صور الزفاف — درس فيديو خطوة بخطوة" data-sv="Komplett arbetsflöde för bröllopsfärgsättning — videolektion steg för steg">Complete wedding colour grading workflow — step-by-step video lesson</h2>
+                    <p data-en="This is not just a colour grading lesson. It is my complete wedding editing process — from RAW to a premium final frame. Learn clean colour, natural skin, memorable atmosphere, and a recognisable visual style through a real workflow." data-ar="هذا ليس مجرد درس لتدرج الألوان. إنه سير عملي الكامل لتحرير صور الزفاف — من ملفات RAW إلى اللقطة النهائية الفاخرة. تعلم الألوان النقية والبشرة الطبيعية والأجواء المميزة وأسلوبًا بصريًا معروفًا من خلال سير عمل حقيقي." data-sv="Det här är inte bara en lektion i färgsättning. Det är hela min process för bröllopsredigering — från RAW till en premiumbild. Lär dig rena färger, naturlig hud, minnesvärd atmosfär och en igenkännbar visuell stil genom ett verkligt arbetsflöde.">This is not just a colour grading lesson. It is my complete wedding editing process — from RAW to a premium final frame. Learn clean colour, natural skin, memorable atmosphere, and a recognisable visual style through a real workflow.</p>
+                    <p data-en="Video training · immediate access after purchase · RAW files included · all signature presets included as a gift." data-ar="تدريب فيديو · وصول فوري بعد الشراء · ملفات RAW مرفقة · جميع الإعدادات المسبقة المميزة هدية." data-sv="Videoutbildning · omedelbar åtkomst efter köp · RAW-filer ingår · alla signaturförinställningar ingår som gåva.">Video training · immediate access after purchase · RAW files included · all signature presets included as a gift.</p>
+                    <a class="shop-price" href="contacts.html">350€ → 210€</a>
+                </div>
+            </article>
+
+            <article class="shop-product">
+                <div class="shop-media"><img src="assets/images/image-4a650d109b3e.jpeg" alt="Presets from three photo sessions"></div>
+                <div class="shop-copy">
+                    <h2 data-en="Presets from 3 photo sessions and 5 locations + RAW files" data-ar="إعدادات مسبقة من 3 جلسات تصوير و5 مواقع + ملفات RAW" data-sv="Förinställningar från 3 fotograferingar och 5 platser + RAW-filer">Presets from 3 photo sessions and 5 locations + RAW files</h2>
+                    <p data-en="A package of presets built through three complete photo sessions across five different locations. Different light, atmosphere, and conditions create a versatile collection with clean colours, depth, and natural skin tones." data-ar="حزمة إعدادات مسبقة بُنيت من خلال ثلاث جلسات تصوير كاملة في خمسة مواقع مختلفة. الإضاءة والأجواء والظروف المتنوعة تصنع مجموعة مرنة بألوان نقية وعمق ودرجات بشرة طبيعية." data-sv="Ett paket med förinställningar skapat genom tre kompletta fotograferingar på fem olika platser. Olika ljus, atmosfär och förhållanden ger en mångsidig kollektion med rena färger, djup och naturliga hudtoner.">A package of presets built through three complete photo sessions across five different locations. Different light, atmosphere, and conditions create a versatile collection with clean colours, depth, and natural skin tones.</p>
+                    <p data-en="RAW files for testing are included, so you can immediately try the presets on original files." data-ar="تتضمن الحزمة ملفات RAW للتجربة، لتتمكن من اختبار الإعدادات فورًا على الملفات الأصلية." data-sv="RAW-filer för testning ingår, så att du direkt kan prova förinställningarna på originalfiler.">RAW files for testing are included, so you can immediately try the presets on original files.</p>
+                    <a class="shop-price" href="contacts.html">€40</a>
+                </div>
+            </article>
+
+            <section class="shop-pair">
+                <article>
+                    <div class="shop-media"><img src="assets/images/image-bb4269a80844.jpg" alt="Ivi Ceremony presets"></div>
+                    <div class="shop-copy"><h2>Ivi Ceremony</h2><p data-en="Thirteen carefully curated moods for weddings, couple portraits, ceremonies, and family celebrations. Add depth, noble tones, and the emotion of the moment to every frame." data-ar="ثلاثة عشر طابعًا منتقى بعناية للأعراس وبورتريهات الأزواج والمراسم والاحتفالات العائلية. أضف عمقًا وألوانًا راقية ومشاعر اللحظة لكل لقطة." data-sv="Tretton noggrant utvalda stämningar för bröllop, parporträtt, ceremonier och familjefester. Ge varje bild djup, ädla toner och ögonblickets känsla.">Thirteen carefully curated moods for weddings, couple portraits, ceremonies, and family celebrations. Add depth, noble tones, and the emotion of the moment to every frame.</p><a class="shop-price" href="contacts.html">€19,00</a></div>
+                </article>
+                <article>
+                    <div class="shop-media"><img src="assets/images/image-cc28005770c2.jpg" alt="Sun Veil preset"></div>
+                    <div class="shop-copy"><h2>Sun Veil</h2><p data-en="A warm and luxurious Lightroom preset that creates a golden cinematic glow. Perfect for fashion, weddings, street portraits, sunsets, and desert landscapes." data-ar="إعداد Lightroom دافئ وفاخر يصنع توهجًا ذهبيًا سينمائيًا. مثالي للموضة والأعراس والبورتريهات الخارجية والغروب والمناظر الصحراوية." data-sv="En varm och lyxig Lightroom-förinställning som skapar ett gyllene filmiskt sken. Perfekt för mode, bröllop, gatuporträtt, solnedgångar och ökenlandskap.">A warm and luxurious Lightroom preset that creates a golden cinematic glow. Perfect for fashion, weddings, street portraits, sunsets, and desert landscapes.</p><a class="shop-price" href="contacts.html">€10,00</a></div>
+                </article>
+            </section>
+
+            <section class="shop-pair">
+                <article>
+                    <div class="shop-media"><img src="assets/images/image-9667903b9b5b.jpg" alt="Golden Dusk preset"></div>
+                    <div class="shop-copy"><h2>Golden Dusk (White Sun)</h2><p data-en="A warm, soft preset built around golden tones and smooth light transitions. It enhances skin warmth, preserves white details, and gives images a subtle vintage sunset feeling." data-ar="إعداد دافئ وناعم مبني على الدرجات الذهبية والانتقالات الضوئية السلسة. يعزز دفء البشرة ويحافظ على تفاصيل الأبيض ويمنح الصور إحساس غروب عتيقًا هادئًا." data-sv="En varm, mjuk förinställning med gyllene toner och mjuka ljusövergångar. Den framhäver hudens värme, bevarar vita detaljer och ger bilder en subtil vintagekänsla av solnedgång.">A warm, soft preset built around golden tones and smooth light transitions. It enhances skin warmth, preserves white details, and gives images a subtle vintage sunset feeling.</p><a class="shop-price" href="contacts.html">€10,00</a></div>
+                </article>
+                <article>
+                    <div class="shop-media"><img src="assets/images/image-e1aee5235920.jpeg" alt="MAsum preset"></div>
+                    <div class="shop-copy"><h2>MAsum</h2><p data-en="A fresh preset for radiant skin and modern frames. It keeps whites clean, water crystal blue, and colours minimal, making it ideal for pool, sea, love story, and bridal sessions." data-ar="إعداد منعش للبشرة المشرقة واللقطات العصرية. يحافظ على الأبيض نقيًا والماء أزرق بلوريًا والألوان بسيطة، وهو مثالي لجلسات المسبح والبحر ولوف ستوري والعروس." data-sv="En fräsch förinställning för strålande hud och moderna bilder. Den håller vitt rent, vatten kristallblått och färgerna minimalistiska, perfekt för pool, hav, love story och brudfotograferingar.">A fresh preset for radiant skin and modern frames. It keeps whites clean, water crystal blue, and colours minimal, making it ideal for pool, sea, love story, and bridal sessions.</p><a class="shop-price" href="contacts.html">€10,00</a></div>
+                </article>
+            </section>
+
+            <article class="shop-product shop-product--reverse">
+                <div class="shop-media"><img src="assets/images/image-024537d40388.jpg" alt="Ivi Ceremony presets"></div>
+                <div class="shop-copy"><h2>Ivi Ceremony</h2><p data-en="Thirteen carefully curated moods for weddings, couple portraits, ceremonies, and family celebrations. Each preset turns an image into a work of art, from delicate bright moments to deep dramatic scenes." data-ar="ثلاثة عشر طابعًا منتقى بعناية للأعراس وبورتريهات الأزواج والمراسم والاحتفالات العائلية. كل إعداد يحوّل الصورة إلى عمل فني، من اللحظات الرقيقة والمضيئة إلى المشاهد العميقة والدرامية." data-sv="Tretton noggrant utvalda stämningar för bröllop, parporträtt, ceremonier och familjefester. Varje förinställning förvandlar en bild till ett konstverk, från mjuka ljusa stunder till djupa dramatiska scener.">Thirteen carefully curated moods for weddings, couple portraits, ceremonies, and family celebrations. Each preset turns an image into a work of art, from delicate bright moments to deep dramatic scenes.</p><a class="shop-price" href="contacts.html">€19,00</a></div>
+            </article>
+
+            <article class="shop-product">
+                <div class="shop-media"><img src="assets/images/image-96f73b43a277.jpg" alt="Signature Collection 1.0"></div>
+                <div class="shop-copy"><h2>Signature Collection 1.0</h2><h3 data-en="4 presets in one package" data-ar="4 إعدادات مسبقة في حزمة واحدة" data-sv="4 förinställningar i ett paket">4 presets in one package</h3><p data-en="A carefully selected collection of Black Ocean, Aqua Muse, Bridal Bloom, and Coastal Soul — from cinematic depth to delicate wedding tones and coastal calm." data-ar="مجموعة مختارة بعناية من Black Ocean وAqua Muse وBridal Bloom وCoastal Soul — من العمق السينمائي إلى درجات الزفاف الرقيقة وهدوء الساحل." data-sv="En noggrant utvald kollektion med Black Ocean, Aqua Muse, Bridal Bloom och Coastal Soul — från filmiskt djup till mjuka bröllopstoner och kustens lugn.">A carefully selected collection of Black Ocean, Aqua Muse, Bridal Bloom, and Coastal Soul — from cinematic depth to delicate wedding tones and coastal calm.</p><a class="shop-price" href="contacts.html">€25,00</a></div>
+            </article>
+
+            <article class="shop-product shop-product--reverse">
+                <div class="shop-media"><img src="assets/images/image-f340f0f0519f.jpg" alt="Signature Collection 1.1"></div>
+                <div class="shop-copy"><h2>Signature Collection 1.1</h2><h3 data-en="6 presets in one package" data-ar="6 إعدادات مسبقة في حزمة واحدة" data-sv="6 förinställningar i ett paket">6 presets in one package</h3><p data-en="Six carefully developed Lightroom presets with style, light, and mood in every frame. Designed for weddings, portraits, travel photography, and fashion sessions." data-ar="ستة إعدادات Lightroom مطورة بعناية تجمع الأسلوب والضوء والأجواء في كل لقطة. صُممت للأعراس والبورتريهات والتصوير أثناء السفر وجلسات الموضة." data-sv="Sex noggrant utvecklade Lightroom-förinställningar med stil, ljus och stämning i varje bild. Skapade för bröllop, porträtt, resefotografi och modesessioner.">Six carefully developed Lightroom presets with style, light, and mood in every frame. Designed for weddings, portraits, travel photography, and fashion sessions.</p><a class="shop-price" href="contacts.html">€30,00</a></div>
+            </article>
+
+            <section class="shop-pair">
+                <article>
+                    <div class="shop-media"><img src="assets/images/image-024537d40388.jpg" alt="Black Ocean preset"></div>
+                    <div class="shop-copy"><h2>Black Ocean</h2><h3 data-en="Premium preset for striking depth and contrast" data-ar="إعداد فاخر لعمق وتباين مميزين" data-sv="Premiumförinställning för slående djup och kontrast">Premium preset for striking depth and contrast</h3><p data-en="Dense shadows, a matte glow, and deep ocean tones create an elegant, restrained drama for yacht sessions, weddings, fashion portraits, and lifestyle photography." data-ar="الظلال الكثيفة والتوهج المطفأ ودرجات المحيط العميقة تصنع دراما أنيقة وهادئة لجلسات اليخوت والأعراس وبورتريهات الموضة وتصوير اللايف ستايل." data-sv="Täta skuggor, ett matt sken och djupa havstoner skapar en elegant, återhållen dramatik för yachter, bröllop, modeporträtt och lifestylefotografi.">Dense shadows, a matte glow, and deep ocean tones create an elegant, restrained drama for yacht sessions, weddings, fashion portraits, and lifestyle photography.</p><a class="shop-price" href="contacts.html">€20,00 EUR</a></div>
+                </article>
+                <article>
+                    <div class="shop-media"><img src="assets/images/image-4a650d109b3e.jpeg" alt="Aqua Muse preset"></div>
+                    <div class="shop-copy"><h2>Aqua Muse</h2><h3 data-en="Your ideal preset for radiant skin and fresh modern frames" data-ar="إعدادك المثالي للبشرة المشرقة واللقطات العصرية المنعشة" data-sv="Din idealiska förinställning för strålande hud och fräscha moderna bilder">Your ideal preset for radiant skin and fresh modern frames</h3><p data-en="Created for lovers of light, clean colour, and aesthetic simplicity. It reveals natural skin texture, true white, and crystal-blue water." data-ar="صُنع لمحبي الضوء والألوان النقية والبساطة الجمالية. يُظهر ملمس البشرة الطبيعي والأبيض الحقيقي والماء الأزرق البلوري." data-sv="Skapad för dig som älskar ljus, rena färger och estetisk enkelhet. Den framhäver naturlig hudstruktur, äkta vitt och kristallblått vatten.">Created for lovers of light, clean colour, and aesthetic simplicity. It reveals natural skin texture, true white, and crystal-blue water.</p><a class="shop-price" href="contacts.html">€10,00 EUR</a></div>
+                </article>
+            </section>
+
+            <section class="shop-pair">
+                <article>
+                    <div class="shop-media"><img src="assets/images/image-cc28005770c2.jpg" alt="Bridal Bloom preset"></div>
+                    <div class="shop-copy"><h2>Bridal Bloom</h2><h3 data-en="A delicate, elegant wedding preset made for those who shoot with love" data-ar="إعداد زفاف رقيق وأنيق لمن يصورون بحب" data-sv="En mjuk och elegant bröllopsförinställning för dig som fotograferar med kärlek">A delicate, elegant wedding preset made for those who shoot with love</h3><p data-en="It preserves pure whites, velvety skin, and natural bouquet and makeup tones. Bright, soft, and feminine for bridal mornings, portraits, and indoor weddings." data-ar="يحافظ على نقاء الأبيض ونعومة البشرة ودرجات الباقة والمكياج الطبيعية. مشرق وناعم وأنثوي لصباح العروس والبورتريهات والأعراس الداخلية." data-sv="Den bevarar rena vita toner, sammetslen hud och naturliga nyanser i bukett och makeup. Ljus, mjuk och feminin för brudmorgnar, porträtt och inomhusbröllop.">It preserves pure whites, velvety skin, and natural bouquet and makeup tones. Bright, soft, and feminine for bridal mornings, portraits, and indoor weddings.</p><a class="shop-price" href="contacts.html">€15,00 EUR</a></div>
+                </article>
+                <article>
+                    <div class="shop-media"><img src="assets/images/image-f340f0f0519f.jpg" alt="Coastal Soul preset"></div>
+                    <div class="shop-copy"><h2>Coastal Soul</h2><h3 data-en="A light minimal preset with the mood of a morning coast" data-ar="إعداد خفيف وبسيط بأجواء ساحل الصباح" data-sv="En ljus minimalistisk förinställning med känslan av en morgonkust">A light minimal preset with the mood of a morning coast</h3><p data-en="It keeps skin natural and clothing clean while softly toning water and shadows. Made for beach sessions, travel, love stories, boho shoots, and light-filled frames." data-ar="يحافظ على البشرة طبيعية والملابس نقية مع تلوين ناعم للماء والظلال. صُمم لجلسات الشاطئ والسفر ولوف ستوري والبوهيمي واللقطات المليئة بالضوء." data-sv="Den håller huden naturlig och kläderna rena samtidigt som den mjukt tonar vatten och skuggor. Skapad för strandfotograferingar, resor, love stories, boho-sessioner och ljusa bilder.">It keeps skin natural and clothing clean while softly toning water and shadows. Made for beach sessions, travel, love stories, boho shoots, and light-filled frames.</p><a class="shop-price" href="contacts.html">€10,00 EUR</a></div>
+                </article>
+            </section>
+
+            <section class="preset-guide">
+                <div>
+                    <h2 data-en="How to install presets?" data-ar="كيف تثبت الإعدادات المسبقة؟" data-sv="Hur installerar du förinställningar?">How to install presets?</h2>
+                    <ol>
+                        <li data-en="Download the presets to your computer." data-ar="نزّل الإعدادات المسبقة إلى جهاز الكمبيوتر." data-sv="Ladda ned förinställningarna till din dator.">Download the presets to your computer.</li>
+                        <li data-en="Open Adobe Lightroom Classic." data-ar="افتح Adobe Lightroom Classic." data-sv="Öppna Adobe Lightroom Classic.">Open Adobe Lightroom Classic.</li>
+                        <li data-en="Go to the Develop module." data-ar="انتقل إلى وحدة Develop." data-sv="Gå till modulen Develop.">Go to the Develop module.</li>
+                        <li data-en="In the Presets panel, right-click and choose Import." data-ar="في لوحة Presets، انقر بزر الفأرة الأيمن واختر Import." data-sv="Högerklicka i panelen Presets och välj Import.">In the Presets panel, right-click and choose Import.</li>
+                        <li data-en="Find the downloaded .xmp file and select Import." data-ar="ابحث عن ملف .xmp الذي نزلته واختر Import." data-sv="Hitta den nedladdade .xmp-filen och välj Import.">Find the downloaded .xmp file and select Import.</li>
+                        <li data-en="The preset will appear in the list on the left." data-ar="سيظهر الإعداد المسبق في القائمة على اليسار." data-sv="Förinställningen visas i listan till vänster.">The preset will appear in the list on the left.</li>
+                    </ol>
+                </div>
+                <div class="shop-media"><img src="assets/images/image-9779bd0bdc65.jpg" alt="Preset installation guide"></div>
+            </section>
+
+            <section class="shop-contact" id="store-contact">
+                <div class="shop-contact-inner">
+                    <div class="shop-media shop-media--square"><img src="assets/images/image-182ff375c494.jpg" alt="Contact Manal Studio"></div>
+                    <h2 data-en="Get in touch" data-ar="تواصل معي" data-sv="Kontakta mig">Get in touch</h2>
+                    <p data-en="Send a message and I will get back to you shortly." data-ar="أرسل رسالة وسأتواصل معك قريبًا." data-sv="Skicka ett meddelande så återkommer jag snart.">Send a message and I will get back to you shortly.</p>
+                    <form class="shop-form" id="storeForm">
+                        <input type="text" placeholder="Your name" required>
+                        <input type="text" placeholder="Phone number or email" required>
+                        <textarea class="shop-form-wide" placeholder="Your message" required></textarea>
+                        <label class="shop-consent">
+                            <input type="checkbox" required>
+                            <span data-en="I consent to the processing of my personal data and accept the privacy policy." data-ar="أوافق على معالجة بياناتي الشخصية وأقبل سياسة الخصوصية." data-sv="Jag samtycker till behandlingen av mina personuppgifter och accepterar integritetspolicyn.">I consent to the processing of my personal data and accept the privacy policy.</span>
+                        </label>
+                        <button class="shop-submit" type="submit" data-en="SEND" data-ar="إرسال" data-sv="SKICKA">SEND</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <a class="back" href="#top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></a>
+        <div class="socials">
+            <a href="mailto:alkamelamr1@gmail.com" aria-label="Email Manal Studio"><i class="fa-regular fa-envelope"></i></a>
+            <a href="store.html" aria-label="Store"><i class="fas fa-external-link-alt"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.pinterest.com/" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <p data-en="Manal Studio" data-ar="منال استوديو" data-sv="Manal Studio">Manal Studio</p>
+        <p data-en="Wedding & visual storytelling across the Arab world and Europe" data-ar="تصوير الزفاف والحكايات البصرية في الوطن العربي وأوروبا" data-sv="Bröllop och visuellt berättande i Arabvärlden och Europa">Wedding & visual storytelling across the Arab world and Europe</p>
+    </footer>
+
+    <!-- ================= BACK TO TOP BUTTON ================= -->
+    <button class="back-to-top-btn" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script src="assets/js/i18n.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // ================= SCROLL PROGRESS BAR =================
+            const scrollProgress = document.getElementById('scrollProgress');
+            if (scrollProgress) {
+                window.addEventListener('scroll', () => {
+                    const scrollTop = window.scrollY;
+                    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrollPercent = (scrollTop / docHeight) * 100;
+                    scrollProgress.style.width = scrollPercent + '%';
+                }, { passive: true });
+            }
+
+            // ================= HEADER SCROLL EFFECT =================
+            const header = document.querySelector('.header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                }, { passive: true });
+            }
+
+            // ================= SCROLL REVEAL =================
+            const revealElements = document.querySelectorAll(
+                '.intro, .product, .shop-product, .shop-pair, .preset-guide, .shop-contact, .shop-opening'
+            );
+            if ('IntersectionObserver' in window && revealElements.length) {
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('revealed');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+                revealElements.forEach(el => {
+                    el.classList.add('reveal-on-scroll');
+                    revealObserver.observe(el);
+                });
+            }
+
+            // ================= BACK TO TOP =================
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', () => {
+                    backToTop.classList.toggle('visible', window.scrollY > 400);
+                }, { passive: true });
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // ================= MENU TOGGLE =================
+            const menuToggle = document.getElementById('menuToggle');
+            const closeButton = document.getElementById('closeButton');
+            const menuPanel = document.getElementById('menuPanel');
+
+            function toggleMenu(open) {
+                if (!menuPanel || !menuToggle) return;
+                menuPanel.classList.toggle('open', open);
+                menuToggle.classList.toggle('is-open', open);
+                menuToggle.setAttribute('aria-expanded', String(open));
+                menuPanel.setAttribute('aria-hidden', String(!open));
+                document.body.style.overflow = open ? 'hidden' : '';
+            }
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    const isOpen = menuPanel?.classList.contains('open');
+                    toggleMenu(!isOpen);
+                });
+            }
+            if (closeButton) closeButton.addEventListener('click', () => toggleMenu(false));
+            if (menuPanel) {
+                menuPanel.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => toggleMenu(false));
+                });
+            }
+
+            // ================= ESCAPE KEY =================
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (menuPanel?.classList.contains('open')) toggleMenu(false);
+                }
+            });
+
+            // ================= STORE FORM =================
+            const storeForm = document.getElementById('storeForm');
+            if (storeForm) {
+                storeForm.addEventListener('submit', event => {
+                    event.preventDefault();
+                    event.target.reset();
+                    alert('Thank you. Your message has been sent.');
+                });
+            }
+
+            // ================= ADVANCED: RIPPLE EFFECT =================
+            document.querySelectorAll('.shop-price, .price, .shop-submit, .shop-form input, .shop-form textarea').forEach(el => {
+                el.classList.add('ripple');
+                el.addEventListener('touchstart', (e) => {
+                    const touch = e.touches[0];
+                    const rect = el.getBoundingClientRect();
+                    const x = touch.clientX - rect.left;
+                    const y = touch.clientY - rect.top;
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple-effect';
+                    const size = Math.max(rect.width, rect.height);
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = (x - size / 2) + 'px';
+                    ripple.style.top = (y - size / 2) + 'px';
+                    el.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 700);
+                }, { passive: true });
+            });
+
+            // ================= ADVANCED: CARD TILT =================
+            document.querySelectorAll('.shop-product, .product, .shop-pair article').forEach(card => {
+                card.classList.add('tilt-card');
+            });
+
+            // ================= ADVANCED: HAPTIC FEEDBACK =================
+            function triggerHaptic(duration = 10) {
+                if ('vibrate' in navigator) {
+                    try { navigator.vibrate(duration); } catch (e) {}
+                }
+            }
+            document.querySelectorAll('.shop-price, .price, .shop-submit, .menu-toggle').forEach(btn => {
+                btn.addEventListener('touchstart', () => triggerHaptic(10), { passive: true });
+            });
+
+            // ================= ADVANCED: IMAGE LAZY FADE =================
+            const lazyImages = document.querySelectorAll('.shop-media img, .shop-opening img, .product-image img');
+            if ('IntersectionObserver' in window) {
+                const imgObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.classList.add('lazy-fade');
+                            if (img.complete) {
+                                img.classList.add('loaded');
+                            } else {
+                                img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+                            }
+                            imgObserver.unobserve(img);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                lazyImages.forEach(img => imgObserver.observe(img));
+            }
+
+            // ================= ADVANCED: GRADIENT TEXT =================
+            const heroH1 = document.querySelector('.intro h1');
+            if (heroH1) heroH1.classList.add('gradient-text');
+
+            // ================= ADVANCED: PULSE ON SUBMIT =================
+            document.querySelectorAll('.shop-submit').forEach(btn => btn.classList.add('pulse-soft'));
+
+            // ================= ADVANCED: PAGE TRANSITION =================
+            document.body.classList.add('page-transition');
+
+            // ================= ADVANCED: STAGGERED CARD ENTRANCE =================
+            const shopProducts = document.querySelectorAll('.shop-product, .shop-pair article');
+            shopProducts.forEach((card, i) => {
+                if (i < 5) card.classList.add('card-entrance');
+            });
+
+        });
+    </script>
+<link rel="stylesheet" href="assets/css/photography-effects.css">
+<script src="assets/js/photography-effects.js"></script>
+</body>
+</html>

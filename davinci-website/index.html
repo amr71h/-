@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANAL STUDIO | Wedding & Visual Storytelling</title>
+    <meta name="description" content="Wedding & visual storytelling across the Arab world and Europe. Refined photography for intimate celebrations and unforgettable experiences.">
+    
+    <!-- ================= EXTERNAL RESOURCES ================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Noto+Sans+Arabic:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ================= CSS (LANGUAGE 1: STYLING) ================= -->
+    <style>
+:root {
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-cream: #F5F5F0;
+    /* === MERGED: Dark Brown tones added === */
+    --color-brown-deep: #1A0F0A;
+    --color-brown-mid: #2C1A12;
+    --color-brown-accent: #8B5A3C;
+    --color-brown-light: #C49A6C;
+    /* ==================================== */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --font-arabic: 'Noto Sans Arabic', sans-serif;
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --header-height: 80px;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    /* MERGED: Black + Dark Brown */
+    background: linear-gradient(180deg, #000000 0%, #0D0705 100%);
+    color: var(--color-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+html[lang="ar"] body {
+    font-family: var(--font-arabic);
+    direction: rtl;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3 {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+}
+
+html[lang="ar"] .hero-content,
+html[lang="ar"] .about-text,
+html[lang="ar"] .path-text,
+html[lang="ar"] .equip-text {
+    text-align: right;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+}
+
+ul {
+    list-style: none;
+}
+
+/* ================= TYPOGRAPHY ================= */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+h1 {
+    font-size: clamp(2rem, 8vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 6vw, 3.5rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+/* ================= UTILITY CLASSES ================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.section-black {
+    /* MERGED: Black + Dark Brown */
+    background: linear-gradient(180deg, #000000 0%, #120A06 100%);
+    color: var(--color-white);
+    padding: 6rem 0;
+}
+
+.section-cream {
+    background-color: var(--color-cream);
+    color: var(--color-black);
+    padding: 6rem 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.btn-cream {
+    background-color: var(--color-cream);
+    color: var(--color-black);
+}
+
+.btn-cream:hover {
+    background-color: transparent;
+    color: var(--color-cream);
+    border-color: var(--color-cream);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.btn-outline-white {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.btn-outline-white:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+/* ================= HEADER ================= */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 1000;
+    transition: var(--transition-smooth);
+    animation: headerFadeIn 0.8s ease-out;
+}
+
+@keyframes headerFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.main-header.scrolled {
+    /* MERGED: Black + Dark Brown */
+    background: linear-gradient(180deg, rgba(0,0,0,0.95), rgba(26,15,10,0.95));
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* === LEFT SIDE === */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+/* === MENU TOGGLE (Custom Animated Icon) === */
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: var(--transition-smooth);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+}
+
+.menu-toggle::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(139, 90, 60, 0.15);
+    opacity: 0;
+    transform: scale(0.7);
+    transition: var(--transition-smooth);
+}
+
+.menu-toggle:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.menu-toggle:hover {
+    transform: rotate(90deg);
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 26px;
+    height: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.menu-icon span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-white);
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform-origin: center;
+}
+
+.menu-icon span:nth-child(1) { width: 100%; }
+.menu-icon span:nth-child(2) { width: 70%; }
+.menu-icon span:nth-child(3) { width: 100%; }
+
+.menu-toggle:hover .menu-icon span {
+    background-color: var(--color-brown-light);
+}
+.menu-toggle:hover .menu-icon span:nth-child(2) {
+    width: 100%;
+}
+
+.menu-toggle.is-open .menu-icon span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+    background-color: var(--color-brown-light);
+}
+.menu-toggle.is-open .menu-icon span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+.menu-toggle.is-open .menu-icon span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+    background-color: var(--color-brown-light);
+}
+
+/* === LANGUAGE PICKER === */
+.language-picker {
+    position: relative;
+}
+
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(196, 154, 108, 0.3);
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    cursor: pointer;
+    letter-spacing: 0.08em;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-toggle::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(196, 154, 108, 0.15), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.lang-toggle:hover::before {
+    transform: translateX(100%);
+}
+
+.lang-toggle:hover {
+    background: rgba(139, 90, 60, 0.2);
+    border-color: var(--color-brown-light);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(139, 90, 60, 0.2);
+}
+
+.lang-icon {
+    font-size: 0.85rem;
+    color: var(--color-brown-light);
+    transition: transform 0.4s ease;
+}
+
+.lang-toggle:hover .lang-icon {
+    transform: rotate(180deg);
+}
+
+.lang-text {
+    font-weight: 500;
+    min-width: 20px;
+    text-align: center;
+}
+
+.lang-arrow {
+    font-size: 0.55rem;
+    transition: transform 0.4s ease;
+    opacity: 0.7;
+}
+
+.lang-toggle[aria-expanded="true"] .lang-arrow {
+    transform: rotate(180deg);
+}
+
+/* === LANGUAGE MENU === */
+.language-menu {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 0;
+    min-width: 170px;
+    padding: 0.5rem;
+    /* MERGED: Black + Dark Brown */
+    background: linear-gradient(180deg, #000000 0%, #1A0F0A 100%);
+    /* MERGED: Border color */
+    border: 1px solid rgba(139, 90, 60, 0.35);
+    border-radius: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.95);
+    transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 100;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.language-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--color-white);
+    font: 0.8rem var(--font-body);
+    letter-spacing: 0.05em;
+    text-align: start;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.language-option i {
+    opacity: 0;
+    color: var(--color-brown-light);
+    font-size: 0.7rem;
+    transition: var(--transition-smooth);
+}
+
+.language-option:hover,
+.language-option.selected {
+    background: rgba(139, 90, 60, 0.25);
+    color: var(--color-brown-light);
+    padding-left: 1.2rem;
+}
+
+.language-option.selected i {
+    opacity: 1;
+}
+
+html[lang="ar"] .language-option {
+    font-family: var(--font-arabic);
+}
+
+/* === LOGO (RIGHT SIDE) === */
+.logo a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--color-white);
+    transition: var(--transition-smooth);
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(196, 154, 108, 0.4);
+    border-radius: 50%;
+    color: var(--color-brown-light);
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-icon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(139, 90, 60, 0.2);
+    transform: scale(0);
+    border-radius: 50%;
+    transition: transform 0.4s ease;
+}
+
+.logo a:hover .logo-icon::before {
+    transform: scale(1);
+}
+
+.logo a:hover .logo-icon {
+    border-color: var(--color-brown-light);
+    transform: rotate(360deg);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.9;
+}
+
+.logo-text strong {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 2vw, 2.2rem);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: block;
+    transition: var(--transition-smooth);
+}
+
+.logo-text small {
+    font-family: var(--font-body);
+    font-size: 0.52rem;
+    letter-spacing: 0.52em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-top: 0.2rem;
+    display: block;
+    transition: var(--transition-smooth);
+}
+
+.logo a:hover .logo-text strong {
+    color: var(--color-brown-light);
+}
+
+.logo a:hover .logo-text small {
+    letter-spacing: 0.7em;
+}
+/* ================= FULLSCREEN MENU ================= */
+.fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* MERGED: Black + Dark Brown */
+    background: linear-gradient(180deg, #000000 0%, #1A0F0A 50%, #000000 100%);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-18px) scale(0.98);
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+}
+
+.fullscreen-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.menu-links li {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    transition-delay: calc(var(--i) * 0.06s);
+}
+
+.fullscreen-menu.active .menu-links li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 5%;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.menu-links li {
+    margin-bottom: 1.5rem;
+}
+
+.menu-links a {
+    font-family: var(--font-body);
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-weight: 300;
+    color: var(--color-white);
+    transition: var(--transition-smooth);
+}
+
+.menu-links a:hover, .menu-links a.active {
+    color: var(--color-cream);
+    padding-left: 20px;
+    transform: translateX(6px);
+}
+
+.menu-links li:nth-child(1) { --i: 1; }
+.menu-links li:nth-child(2) { --i: 2; }
+.menu-links li:nth-child(3) { --i: 3; }
+.menu-links li:nth-child(4) { --i: 4; }
+.menu-links li:nth-child(5) { --i: 5; }
+.menu-links li:nth-child(6) { --i: 6; }
+.menu-links li:nth-child(7) { --i: 7; }
+
+.menu-socials {
+    margin-top: 4rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.menu-socials a {
+    color: var(--color-white);
+    font-size: 1.5rem;
+}
+
+.menu-socials a:hover {
+    /* MERGED: Brown light */
+    color: var(--color-brown-light);
+    transform: translateY(-3px);
+}
+
+/* ================= HERO SECTION ================= */
+.hero {
+    position: relative;
+    /* MERGED: Black + Dark Brown */
+    background: linear-gradient(180deg, #000000 0%, #0D0705 100%);
+    padding-top: 80px;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+}
+
+.hero-stage {
+    position: relative;
+    width: 100vw;
+    max-width: none;
+    height: min(74vh, 760px);
+    margin: 0;
+    margin-left: calc(50% - 50vw);
+    background: #000000;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: visible;
+    transition: opacity 2.2s ease-in-out, transform 2.8s cubic-bezier(0.22, 1, 0.36, 1), filter 2.2s ease-in-out;
+    transform: scale(1.035);
+    filter: blur(1px) brightness(0.86);
+    pointer-events: none;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0) brightness(0.92);
+    pointer-events: auto;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: min(74vh, 760px);
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.9) contrast(1.05);
+    transform: scale(1.015);
+    transition: transform 2.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-slide.active img {
+    transform: scale(1);
+}
+
+.hero-copy {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 5% 4rem;
+    /* MERGED: Black + Dark Brown */
+    background: linear-gradient(180deg, #000000 0%, #1A0F0A 100%);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-copy h1 {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    text-shadow: none;
+    font-size: clamp(3.2rem, 7vw, 9.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+}
+
+.hero-copy .hero-note {
+    max-width: 980px;
+    margin: 2rem auto 0;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    line-height: 1.15;
+    font-style: italic;
+    font-weight: 400;
+    color: rgba(255,255,255,0.9);
+}
+
+.hero-copy .btn {
+    display: none;
+}
+
+/* ================= ABOUT SECTION ================= */
+.about .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.about-text .btn {
+    margin-top: 1.25rem;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+/* ================= PORTFOLIO GRID ================= */
+.portfolio-preview {
+    text-align: center;
+}
+
+.subtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 3rem;
+    opacity: 0.7;
+}
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 3rem;
+}
+
+.grid-item {
+    overflow: hidden;
+    /* MERGED: Black + Dark Brown */
+    background: linear-gradient(180deg, #000000 0%, #1A0F0A 100%);
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.grid-item:hover img {
+    transform: scale(1.05);
+}
+
+/* ================= PROFESSIONAL BACKGROUND ================= */
+.reference-section {
+    font-family: 'Roboto', var(--font-body);
+}
+
+.career-section {
+    padding: 8rem 0;
+}
+
+.career-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2rem, 5vw, 5.5rem);
+}
+
+.career-item .number {
+    display: block;
+    margin-bottom: 1.45rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+
+.career-item h2,
+.service-copy h2 {
+    margin-bottom: 1.35rem;
+    font-family: inherit;
+    font-size: clamp(1.35rem, 2vw, 1.85rem);
+    font-weight: 400;
+    line-height: 1.18;
+    letter-spacing: 0.015em;
+}
+
+.career-item p,
+.service-copy p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* ================= SERVICES ================= */
+.services-section {
+    padding: 8rem 0;
+}
+
+.services-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: clamp(2.5rem, 6vw, 7rem);
+    align-items: center;
+}
+
+.service-copy .btn {
+    margin-top: 2.25rem;
+    border-color: currentColor;
+    color: var(--color-black);
+}
+
+.service-copy .btn:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.service-image {
+    order: -1;
+    aspect-ratio: 1.498 / 1;
+    overflow: hidden;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================= PHILOSOPHY ================= */
+.philosophy {
+    padding: 8rem 0 0;
+    text-align: center;
+}
+
+.philosophy-copy {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 0 5% 5rem;
+}
+
+.philosophy-quote {
+    margin: 0 0 1.6rem;
+    font-family: 'Roboto', var(--font-body);
+    font-size: clamp(1.6rem, 3.2vw, 2.75rem);
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+}
+
+.philosophy-sub {
+    margin: 0;
+    font-family: 'Roboto', var(--font-body);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.65;
+}
+
+.philosophy-images {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 2rem);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5% 8rem;
+}
+
+.philosophy-images img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+}
+
+/* ================= BOOKING ================= */
+.cta {
+    position: relative;
+    min-height: 620px;
+    display: grid;
+    place-items: center;
+    padding: 8rem 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.cta::before {
+    position: absolute;
+    inset: 0;
+    /* MERGED: Black + Dark Brown */
+    background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(26,15,10,0.6) 100%);
+    content: '';
+}
+
+.cta-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.cta-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    padding: 0 5%;
+    font-family: 'Roboto', var(--font-body);
+}
+
+.cta-content h2 {
+    margin-bottom: 1.25rem;
+    font-family: inherit;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 400;
+    letter-spacing: 0.015em;
+}
+
+.cta-content p {
+    margin-bottom: 2.25rem;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* ================= FOOTER ================= */
+.main-footer {
+    padding: 4.5rem 5%;
+    /* MERGED: Black + Dark Brown */
+    background: linear-gradient(180deg, #000000 0%, #1A0F0A 100%);
+    /* MERGED: Border color */
+    border-top: 1px solid rgba(139, 90, 60, 0.35);
+    color: var(--color-white);
+    text-align: center;
+    font-family: 'Roboto', var(--font-body);
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    max-width: 720px;
+    margin: 0 auto 2.2rem;
+    padding: 0 1rem;
+}
+
+.footer-socials a {
+    display: grid;
+    width: 2.9rem;
+    height: 2.9rem;
+    place-items: center;
+    border: 1px solid rgba(196, 154, 108, 0.42);
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 1.05rem;
+    background: rgba(255, 255, 255, 0.025);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-socials a:hover {
+    background: var(--color-brown-accent);
+    color: var(--color-white);
+    border-color: var(--color-brown-light);
+    box-shadow: 0 10px 26px rgba(139, 90, 60, 0.32);
+    transform: translateY(-5px) scale(1.05);
+}
+
+.footer-socials a:focus-visible {
+    outline: 2px solid var(--color-brown-light);
+    outline-offset: 4px;
+}
+
+.footer-socials a:nth-child(2n) {
+    transform: translateY(3px);
+}
+
+.footer-socials a:nth-child(2n):hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+.footer-info p,
+.footer-legal,
+.footer-branding {
+    margin: 0 0 0.7rem;
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.55;
+}
+
+.footer-legal,
+.footer-branding {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.footer-legal a,
+.footer-branding a {
+    border-bottom: 1px solid currentColor;
+}
+
+.footer-locales {
+    display: inline-flex;
+    gap: 0.45rem;
+    margin-top: 1.3rem;
+}
+
+.footer-locales span,
+.footer-locales a {
+    display: grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    /* MERGED: Border color */
+    border: 1px solid rgba(196, 154, 108, 0.45);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+}
+
+.footer-locales .active {
+    background: var(--color-white);
+    color: var(--color-black);
+}
+
+/* ================= COOKIE NOTICE ================= */
+.cookie-notice {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    z-index: 3000;
+    display: flex;
+    max-width: 760px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.15rem 1.25rem;
+    background: var(--color-white);
+    color: var(--color-black);
+    /* MERGED: Shadow color */
+    box-shadow: 0 18px 48px rgba(26, 15, 10, 0.28);
+    font: 300 0.86rem/1.45 'Roboto', var(--font-body);
+}
+
+.cookie-notice[hidden] {
+    display: none;
+}
+
+.cookie-notice p {
+    margin: 0;
+    font: inherit;
+}
+
+.cookie-notice p a {
+    border-bottom: 1px solid currentColor;
+}
+
+.cookie-actions {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 0.65rem;
+}
+
+.cookie-actions button {
+    min-width: 6.35rem;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid var(--color-black);
+    background: var(--color-black);
+    color: var(--color-white);
+    font: 400 0.75rem 'Roboto', var(--font-body);
+    cursor: pointer;
+}
+
+.cookie-actions .cookie-reject {
+    background: transparent;
+    color: var(--color-black);
+}
+
+/* ================= RESPONSIVE (MOBILE-FIRST) ================= */
+@media (max-width: 768px) {
+    .about .container,
+    .services-layout,
+    .philosophy-images {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .career-grid {
+        grid-template-columns: 1fr;
+        gap: 3.25rem;
+    }
+
+    .grid-gallery {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-bottom: 2rem;
+    }
+
+    .about-image img {
+        height: 400px;
+    }
+
+    .services-section,
+    .career-section {
+        padding: 5rem 0;
+    }
+
+    .philosophy {
+        padding-top: 5rem;
+    }
+
+    .philosophy-images {
+        padding-bottom: 5rem;
+    }
+
+    .cta {
+        min-height: 520px;
+        padding: 5rem 0;
+    }
+
+    .cookie-notice {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .cookie-actions {
+        justify-content: flex-end;
+    }
+
+    .hero-stage,
+    .hero-slide img {
+        height: min(58vh, 520px);
+    }
+
+    .hero-copy h1 {
+        font-size: 2.2rem;
+    }
+
+    .menu-links a {
+        font-size: 1.8rem;
+    }
+}
+/* ================= 1. PRELOADER ================= */
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: linear-gradient(180deg, #000000 0%, #1A0F0A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.preloader-logo {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    color: var(--color-white);
+    text-transform: uppercase;
+    animation: preloaderFadeIn 1s ease-out;
+}
+
+.preloader-sub {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.6em;
+    color: var(--color-brown-light);
+    text-transform: uppercase;
+    animation: preloaderFadeIn 1s ease-out 0.3s backwards;
+}
+
+.preloader-line {
+    width: 80px;
+    height: 1px;
+    background: var(--color-brown-light);
+    margin-top: 1rem;
+    animation: preloaderLine 1.5s ease-in-out infinite;
+}
+
+@keyframes preloaderFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes preloaderLine {
+    0%, 100% { width: 40px; opacity: 0.5; }
+    50% { width: 80px; opacity: 1; }
+}
+
+/* ================= 2. SCROLL PROGRESS BAR ================= */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-brown-accent), var(--color-brown-light));
+    z-index: 9998;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px rgba(196, 154, 108, 0.5);
+}
+
+/* ================= 3. SCROLL REVEAL (Mobile-Optimized) ================= */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    will-change: opacity, transform;
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= 4. TOUCH FEEDBACK ================= */
+.btn,
+.menu-links a,
+.footer-socials a,
+.lang-toggle,
+.menu-toggle {
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn:active,
+.menu-links a:active,
+.footer-socials a:active,
+.lang-toggle:active,
+.menu-toggle:active {
+    transform: scale(0.94);
+}
+
+.btn:active {
+    background-color: var(--color-brown-accent);
+    color: var(--color-white);
+    border-color: var(--color-brown-accent);
+}
+
+/* ================= 5. SWIPE GALLERY ================= */
+.swipe-gallery {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 5% 1.5rem;
+    margin: 0 -5% 2rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.swipe-gallery::-webkit-scrollbar {
+    display: none;
+}
+
+.swipe-item {
+    flex: 0 0 75%;
+    scroll-snap-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--color-brown-deep);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.swipe-item:active {
+    transform: scale(0.98);
+}
+
+.swipe-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+}
+
+/* مؤشر السحب */
+.swipe-gallery::after {
+    content: '';
+    flex: 0 0 5%;
+}
+
+/* ================= 6. BACK TO TOP BUTTON ================= */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 900;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--color-brown-light);
+    background: linear-gradient(180deg, #000000 0%, #1A0F0A 100%);
+    color: var(--color-brown-light);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.back-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top-btn:active {
+    transform: scale(0.9);
+    background: var(--color-brown-accent);
+    color: var(--color-white);
+}
+
+/* ================= RESPONSIVE ENHANCEMENTS ================= */
+@media (max-width: 768px) {
+    .swipe-item {
+        flex: 0 0 80%;
+    }
+    
+    .preloader-logo {
+        font-size: 2rem;
+    }
+    
+    .back-to-top-btn {
+        bottom: 1rem;
+        right: 1rem;
+        width: 44px;
+        height: 44px;
+    }
+    
+    /* تقليل شدة الأنيميشن على الهواتف الضعيفة */
+    .reveal-on-scroll {
+        transform: translateY(30px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+}
+
+/* ================= REDUCED MOTION (Accessibility) ================= */
+@media (prefers-reduced-motion: reduce) {
+    .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    
+    .preloader-line {
+        animation: none;
+    }
+}
+</style>
+    </style>
+</head>
+<body>
+
+    <!-- ================= HTML (LANGUAGE 2: STRUCTURE) ================= -->
+  <!-- HEADER -->
+<header class="main-header" id="header">
+    <!-- LEFT SIDE: Menu + Language -->
+    <div class="header-left">
+        <!-- Menu Toggle (Custom Icon) -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+            <span class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </button>
+        <!-- Language Picker -->
+        <div class="language-picker" id="languagePicker">
+            <button class="lang-toggle" id="langToggle" type="button" aria-label="Choose language" aria-expanded="false">
+                <i class="fas fa-globe lang-icon"></i>
+                <span class="lang-text">AR</span>
+                <i class="fas fa-chevron-down lang-arrow"></i>
+            </button>
+            <div class="language-menu" id="languageMenu" role="menu">
+                <button class="language-option" type="button" data-language="EN" role="menuitem">
+                    <i class="fas fa-check"></i> English
+                </button>
+                <button class="language-option selected" type="button" data-language="AR" role="menuitem">
+                    <i class="fas fa-check"></i> العربية
+                </button>
+                <button class="language-option" type="button" data-language="SV" role="menuitem">
+                    <i class="fas fa-check"></i> Svenska
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE: Logo -->
+    <div class="logo">
+        <a href="index.html" aria-label="MANAL STUDIO home">
+            <span class="logo-icon">
+                <i class="fas fa-camera-retro"></i>
+            </span>
+            <span class="logo-text">
+                <strong>MANAL</strong>
+                <small>STUDIO</small>
+            </span>
+        </a>
+    </div>
+</header>
+    <!-- FULLSCREEN MENU -->
+    <nav class="fullscreen-menu" id="fullscreenMenu">
+        <button class="close-menu" id="closeMenu" aria-label="Close Menu">&times;</button>
+        <ul class="menu-links">
+            <li><a href="index.html" class="active" data-en="Home" data-ar="الرئيسية" data-sv="Hem">Home</a></li>
+            <li><a href="store.html" data-en="Store" data-ar="المتجر" data-sv="Butik">Store</a></li>
+            <li><a href="portfolio.html" data-en="Portfolio" data-ar="الأعمال" data-sv="Portfolio">Portfolio</a></li>
+            <li><a href="history.html" data-en="History" data-ar="التاريخ" data-sv="Historik">History</a></li>
+            <li><a href="service.html" data-en="Service" data-ar="الخدمات" data-sv="Tjänster">Service</a></li>
+            <li><a href="comments.html" data-en="Comments" data-ar="التعليقات" data-sv="Omdömen">Comments</a></li>
+            <li><a href="contacts.html" data-en="Contacts" data-ar="التواصل" data-sv="Kontakt">Contacts</a></li>
+        </ul>
+        <div class="menu-socials">
+            <a href="mailto:alkamelamr1@gmail.com" aria-label="Email Manal Studio"><i class="fa-regular fa-envelope"></i></a>
+            <a href="store.html" aria-label="Store"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-stage" id="heroSlider" aria-live="polite">
+            <div class="hero-slide active"><img src="assets/images/image-96f73b43a277.jpg" alt="Bride with flowing fabric"></div>
+            <div class="hero-slide"><img src="assets/images/image-4a650d109b3e.jpeg" alt="Bride's hand with ring"></div>
+            <div class="hero-slide"><img src="assets/images/image-024537d40388.jpg" alt="Wedding portrait 1"></div>
+            <div class="hero-slide"><img src="assets/images/image-9779bd0bdc65.jpg" alt="Wedding portrait 2"></div>
+            <div class="hero-slide"><img src="assets/images/image-f340f0f0519f.jpg" alt="Wedding portrait 3"></div>
+            <div class="hero-slide"><img src="assets/images/image-74d54c251681.jpg" alt="Wedding portrait 4"></div>
+            <div class="hero-slide"><img src="assets/images/image-df26a97817f6.jpg" alt="Wedding portrait 5"></div>
+            <div class="hero-slide"><img src="assets/images/image-d82cb52dfcb4.jpg" alt="Wedding portrait 6"></div>
+            <div class="hero-slide"><img src="assets/images/image-9667903b9b5b.jpg" alt="Couple silhouette"></div>
+            <div class="hero-slide"><img src="assets/images/image-bb4269a80844.jpg" alt="Artistic portrait"></div>
+        </div>
+        <div class="hero-copy">
+            <h1 data-en="WEDDING &amp;<br>VISUAL<br>STORYTELLING<br>ACROSS THE ARAB WORLD<br>AND EUROPE" data-ar="تصوير الزفاف<br>والحكايات البصرية<br>في الوطن العربي<br>وأوروبا" data-sv="BRÖLLOP OCH<br>VISUELL BERÄTTANDE<br>I ARABVÄRLDEN<br>OCH EUROPA">WEDDING &amp;<br>VISUAL<br>STORYTELLING<br>ACROSS THE ARAB WORLD<br>AND EUROPE</h1>
+            <p class="hero-note" data-en="Manal Studio creates refined wedding photography and visual storytelling for couples across the Arab world and Europe." data-ar="تقدم منال استوديو تصويرًا راقيًا وحكايات بصرية للأزواج في الوطن العربي وأوروبا." data-sv="Manal Studio skapar förfinad bröllopsfotografi och visuellt berättande för par i Arabvärlden och Europa.">Manal Studio creates refined wedding photography and visual storytelling for couples across the Arab world and Europe.</p>
+        </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section class="about section-black" id="about">
+        <div class="container">
+            <div class="about-image">
+                <img src="assets/images/image-4a650d109b3e.jpeg" alt="Bride's hand with ring">
+            </div>
+            <div class="about-text">
+                <h2 data-en="ABOUT ME" data-ar="نبذة عني" data-sv="OM MIG">ABOUT ME</h2>
+                <p data-en="Manal Studio creates heartfelt, refined photography for weddings, celebrations, and personal stories shaped around your culture, your people, and your chosen location." data-ar="تُصمم منال استوديو صورًا دافئة ورقيقة لحفلات الزفاف والاحتفالات والقصص الشخصية، وفقًا لثقافتك وأحبائك ومكانك المفضل." data-sv="Manal Studio skapar känslosamma, förfinade bilder för bröllop, firanden och personliga berättelser anpassade efter din kultur, dina människor och din plats.">Manal Studio creates heartfelt, refined photography for weddings, celebrations, and personal stories shaped around your culture, your people, and your chosen location.</p>
+                <p data-en="We document each moment with warmth, elegance, and a cinematic eye, creating images that feel authentic and timeless." data-ar="نصوّر كل لحظة بحب وقوة ووضوح بصري سينمائي، لنحصل على صور أصيلة ودائمة في الوقت نفسه." data-sv="Vi dokumenterar varje ögonblick med värme, elegans och ett filmiskt öga, för att skapa bilder som känns genuina och tidlösa.">We document each moment with warmth, elegance, and a cinematic eye, creating images that feel authentic and timeless.</p>
+                <a href="contacts.html" class="btn btn-outline" data-en="CONTACTS" data-ar="تواصل معنا" data-sv="KONTAKT">CONTACTS</a>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="portfolio-preview section-black" id="portfolio">
+        <div class="container">
+            <h2 data-en="Portfolio" data-ar="الأعمال" data-sv="Portfolio">Portfolio</h2>
+            <p class="subtitle" data-en="My Works" data-ar="أعمالي" data-sv="Mina verk">My Works</p>
+            <div class="grid-gallery">
+                <div class="grid-item"><img src="assets/images/image-00379ff8f7ce.jpg" alt="Wedding Photo 1" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-024537d40388.jpg" alt="Wedding Photo 2" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-182ff375c494.jpg" alt="Wedding Photo 3" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-28315e627669.png" alt="Wedding Photo 4" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-305c06cf395e.jpg" alt="Wedding Photo 5" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-4a650d109b3e.jpeg" alt="Wedding Photo 6" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-74d54c251681.jpg" alt="Wedding Photo 7" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-9667903b9b5b.jpg" alt="Wedding Photo 8" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-96f73b43a277.jpg" alt="Wedding Photo 9" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-9779bd0bdc65.jpg" alt="Wedding Photo 10" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-a5ea299c2611.png" alt="Wedding Photo 11" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-bb4269a80844.jpg" alt="Wedding Photo 12" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-cc28005770c2.jpg" alt="Wedding Photo 13" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-d82cb52dfcb4.jpg" alt="Wedding Photo 14" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-d83becfa7d53.jpg" alt="Wedding Photo 15" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-df26a97817f6.jpg" alt="Wedding Photo 16" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-e1aee5235920.jpeg" alt="Wedding Photo 17" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-f340f0f0519f.jpg" alt="Wedding Photo 18" loading="lazy"></div>
+                <div class="grid-item"><img src="assets/images/image-f4a74e7c0d9f.jpg" alt="Wedding Photo 19" loading="lazy"></div>
+            </div>
+            <a href="portfolio.html" class="btn btn-outline" data-en="MORE" data-ar="المزيد" data-sv="MER">MORE</a>
+        </div>
+    </section>
+
+    <!-- CREATIVE PATH SECTION -->
+    <section class="creative-path section-cream" id="creative-legacy" hidden>
+        <div class="container">
+            <div class="path-image">
+                <img src="assets/images/image-9667903b9b5b.jpg" alt="Dramatic silhouette couple">
+            </div>
+            <div class="path-text">
+                <span class="number">01</span>
+                <h2 data-en="CREATIVE PATH" data-ar="المسار الإبداعي" data-sv="KREATIV VÄG">CREATIVE PATH</h2>
+                <p data-en="In 2022, I attended a masterclass in Dubai with Igor Bulgak, to whom I am very grateful for giving me a lot of experience in wedding photography!" data-ar="في عام 2022، حضرت دورة متقدمة في دبي مع إيغور بولغاك، وأنا ممتن له على الخبرة الكبيرة التي منحني إياها في تصوير حفلات الزفاف." data-sv="År 2022 deltog jag i en masterclass i Dubai med Igor Bulgak, som jag är mycket tacksam för den värdefulla erfarenheten inom bröllopsfotografi.">In 2022, I attended a masterclass in Dubai with Igor Bulgak, to whom I am very grateful for giving me a lot of experience in wedding photography!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUIPMENT SECTION -->
+    <section class="equipment section-cream" id="equipment-legacy" hidden>
+        <div class="container">
+            <div class="equip-text">
+                <span class="number">03</span>
+                <h2 data-en="WHAT DO I SHOOT ON?" data-ar="بماذا أصوّر؟" data-sv="MIN UTRUSTNING">WHAT DO I SHOOT ON?</h2>
+                <p data-en="At the moment I am using the Nikon Z9 Flagship, lenses 85 mm f1.2, 14-24mm f2.8, 35 mm f1.4 which today is considered the top camera in the world!" data-ar="أستخدم حاليًا كاميرا Nikon Z9 الرائدة، مع عدسات 85mm f1.2 و14-24mm f2.8 و35mm f1.4، وهي من أفضل المعدات في العالم اليوم." data-sv="Just nu använder jag flaggskeppet Nikon Z9 med objektiven 85 mm f1.2, 14-24 mm f2.8 och 35 mm f1.4, en av världens bästa kamerauppsättningar.">At the moment I am using the Nikon Z9 Flagship, lenses 85 mm f1.2, 14-24mm f2.8, 35 mm f1.4 which today is considered the top camera in the world!</p>
+            </div>
+            <div class="equip-image">
+                <img src="assets/images/image-a5ea299c2611.png" alt="Bride in desert with flowing fabric">
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY SECTION -->
+    <section class="philosophy section-cream" id="philosophy-legacy" hidden>
+        <div class="container">
+            <h2 class="philosophy-quote" data-en="FOR ME, PHOTOGRAPHY IS NOT JUST A PROFESSION: IT IS MY FAVORITE THING THAT HAS BECOME THE MEANING OF LIFE" data-ar="بالنسبة لي، التصوير ليس مجرد مهنة، بل هو شغفي المفضل الذي أصبح معنى الحياة" data-sv="FÖR MIG ÄR FOTOGRAFI INTE BARA ETT YRKE: DET ÄR MIN PASSION OCH MENINGEN MED LIVET">FOR ME, PHOTOGRAPHY IS NOT JUST A PROFESSION: IT IS MY FAVORITE THING THAT HAS BECOME THE MEANING OF LIFE</h2>
+            <p class="philosophy-sub" data-en="With my experience and creativity, I create unique and inimitable memories." data-ar="بخبرتي وإبداعي، أصنع ذكريات فريدة ولا تُنسى." data-sv="Med min erfarenhet och kreativitet skapar jag unika och oförglömliga minnen.">With my experience and creativity, I create unique and inimitable memories.</p>
+            <div class="philosophy-images">
+                <img src="assets/images/image-cc28005770c2.jpg" alt="Artistic black and white portrait">
+                <img src="assets/images/image-bb4269a80844.jpg" alt="Silhouette of man holding woman">
+            </div>
+        </div>
+    </section><!-- PROFESSIONAL BACKGROUND (OUR STORY / APPROACH / TOOLS) -->
+<section class="career-section section-black reference-section" id="creative">
+    <div class="container career-grid">
+        <article class="career-item">
+            <span class="number">01</span>
+            <h2 data-en="OUR STORY" data-ar="قصتنا" data-sv="VÅR HISTORIA">OUR STORY</h2>
+            <p data-en="Manal Studio was created to document meaningful celebrations with elegance, emotion, and narrative depth. We work across the Arab world and Europe, shaping each story around the people, place, and atmosphere that make it unforgettable." data-ar="أنشئ استوديو منال لتوثيق الاحتفالات المميزة بأناقة ومشاعر وعمق سردي. نعمل عبر الوطن العربي وأوروبا، ونصوغ كل قصة حول الأشخاص والمكان والأجواء التي تجعلها لا تُنسى." data-sv="Manal Studio skapades för att dokumentera meningsfulla firanden med elegans, känsla och berättande djup. Vi arbetar över Arabvärlden och Europa och formar varje historia kring människorna, platsen och atmosfären som gör den oförglömlig.">Manal Studio was created to document meaningful celebrations with elegance, emotion, and narrative depth. We work across the Arab world and Europe, shaping each story around the people, place, and atmosphere that make it unforgettable.</p>
+        </article>
+        <article class="career-item">
+            <span class="number">02</span>
+            <h2 data-en="OUR APPROACH" data-ar="نهجنا" data-sv="VÅRT TILLVÄGAGÅNGSSÄTT">OUR APPROACH</h2>
+            <p data-en="We build visual experiences that feel personal and timeless. From first contact to final delivery, every detail is planned to preserve genuine emotion, refined aesthetics, and a cinematic rhythm that reflects your story." data-ar="نصنع تجارب بصرية تُشعر بالخصوصية والخلود. من أول اتصال إلى التسليم النهائي، يتم التخطيط لكل التفاصيل للحفاظ على المشاعر الحقيقية والجمال المتوازن والإيقاع السينمائي الذي يعكس قصتكم." data-sv="Vi skapar visuella upplevelser som känns personliga och tidlösa. Från första kontakt till slutleverans planeras varje detalj för att bevara äkta känsla, förfinad estetik och en filmisk rytm som speglar er historia.">We build visual experiences that feel personal and timeless. From first contact to final delivery, every detail is planned to preserve genuine emotion, refined aesthetics, and a cinematic rhythm that reflects your story.</p>
+        </article>
+        <article class="career-item">
+            <span class="number">03</span>
+            <h2 data-en="OUR TOOLS" data-ar="أدواتنا" data-sv="VÅRA VERKTYG">OUR TOOLS</h2>
+            <p data-en="Our work combines premium camera systems, carefully selected lenses, and a refined editing language designed to create atmosphere, clarity, and graceful natural tones in every frame." data-ar="يُعتمد في عملنا على أنظمة كاميرا متقدمة، وعدسات مختارة بعناية، ولغة مونتاج متقنة تُبرز الجو والوضوح والألوان الطبيعية الرقيقة في كل إطار." data-sv="Vårt arbete kombinerar premium kamerasystem, noggrant valda objektiv och ett förfinat redigeringsspråk som skapar atmosfär, klarhet och vackra naturliga toner i varje bild.">Our work combines premium camera systems, carefully selected lenses, and a refined editing language designed to create atmosphere, clarity, and graceful natural tones in every frame.</p>
+        </article>
+    </div>
+</section>
+
+    <!-- SERVICES -->
+    <section class="services-section section-cream reference-section" id="services">
+        <div class="container services-layout">
+            <div class="service-copy">
+                <h2 data-en="SERVICES" data-ar="الخدمات" data-sv="TJÄNSTER">SERVICES</h2>
+                <p data-en="See pricing for wedding and love story photography" data-ar="اطلع على أسعار تصوير حفلات الزفاف وجلسات لوف ستوري" data-sv="Se priser för bröllops- och love story-fotografering">See pricing for wedding and love story photography</p>
+                <a href="service.html" class="btn btn-outline" data-en="ORDER" data-ar="اطلب الآن" data-sv="BESTÄLL">ORDER</a>
+            </div>
+            <div class="service-image">
+                <img src="https://i.wfolio.com/x/oofbPPDa_LZs7KyiLDxahQ_ehIKM-L_Y/IkxmswyF5Fb_bJYpxD3obI_1Tl2ds836/iM3lOVpF4biCiBZOfPLr7Fe-qqu_FOZ-/1YHclf2xgBTTWr1kT-TDU5ScvJKMQp-V/Fi7nGX35QJOpPEgvDuNQV_WJWHcEVR7r/fB-3jWt_vaf6ypHq6V6FR9hQGSixd9Ln.jpg" alt="Wedding story portrait" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="philosophy section-black reference-section" id="philosophy">
+        <div class="philosophy-copy">
+            <h2 class="philosophy-quote" data-en="FOR ME, PHOTOGRAPHY IS NOT JUST A PROFESSION: IT IS THE WORK I LOVE AND THE MEANING OF MY LIFE" data-ar="بالنسبة لي، التصوير ليس مجرد مهنة: إنه العمل الذي أحبه ومعنى حياتي" data-sv="FÖR MIG ÄR FOTOGRAFI INTE BARA ETT YRKE: DET ÄR ARBETET JAG ÄLSKAR OCH MENINGEN MED MITT LIV">FOR ME, PHOTOGRAPHY IS NOT JUST A PROFESSION: IT IS THE WORK I LOVE AND THE MEANING OF MY LIFE</h2>
+            <p class="philosophy-sub" data-en="With experience and a creative approach, I preserve your most important moments as unique, lasting memories." data-ar="بالخبرة والنهج الإبداعي، أوثق أهم لحظاتكم لتصبح ذكريات فريدة تدوم طويلًا." data-sv="Med erfarenhet och ett kreativt arbetssätt bevarar jag era viktigaste ögonblick som unika, bestående minnen.">With experience and a creative approach, I preserve your most important moments as unique, lasting memories.</p>
+        </div>
+        <div class="philosophy-images">
+            <img src="https://i.wfolio.com/x/D9FwV61StEWnhy9Ae-2uUf4AuiuoEE_V/VtVR9b9jq_2B8UJwSawQS8B78PB2QZnw/Pn1upomSjiHmqmMM6fhYrISubU_hLed_/qBLs5vdImYVHp4kHF78xoyUbfQa8KSXj/d7M1xWWObEgvyM0P02kF2njjBIcnxRV8/uCXIfIaGigUyNhllMPsF-9RowryeTxWy.jpg" alt="Cinematic wedding portrait" loading="lazy">
+            <img src="https://i.wfolio.com/x/D9FwV61StEWnhy9Ae-2uUf4AuiuoEE_V/VtVR9b9jq_2B8UJwSawQS8B78PB2QZnw/Pn1upomSjiHmqmMM6fhYrISubU_hLed_/qBLs5vdImYXg8ig-VqC2fljB6SDgnKmi/8eWqUWEb40U91KsoWPJuRefZ6-ijtbqL/742VIUY-vwbG3gYpjtJMgT7o6HfjXgoA.jpg" alt="Modern couple portrait" loading="lazy">
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="cta section-black reference-section" id="cta">
+        <div class="cta-bg">
+            <img src="assets/images/image-182ff375c494.jpg" alt="Moody black and white portrait">
+        </div>
+        <div class="cta-content">
+            <h2 data-en="SIGN UP FOR A SHOOT" data-ar="احجزوا جلسة تصوير" data-sv="BOKA EN FOTOGRAFERING">SIGN UP FOR A SHOOT</h2>
+            <p data-en="Contact me in a convenient way using the button below" data-ar="تواصلوا معي بالطريقة المناسبة عبر الزر أدناه" data-sv="Kontakta mig enkelt genom knappen nedan">Contact me in a convenient way using the button below</p>
+            <a href="contacts.html" class="btn btn-outline-white" data-en="BOOK A DATE" data-ar="احجزوا موعدًا" data-sv="BOKA ETT DATUM">BOOK A DATE</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer" id="footer-legal">
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.pinterest.com/" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="mailto:alkamelamr2@gmail.com" aria-label="Email Manal Studio"><i class="fa-regular fa-envelope"></i></a>
+            <a href="store.html" aria-label="Store"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="footer-info">
+            <p>Manal Studio</p>
+            <p data-en="Wedding & visual storytelling across the Arab world and Europe" data-ar="تصوير الزفاف والحكايات البصرية في الوطن العربي وأوروبا" data-sv="Bröllop och visuellt berättande i Arabvärlden och Europa">Wedding & visual storytelling across the Arab world and Europe</p>
+        </div>
+    </footer>
+
+    <!-- ================= PRELOADER ================= -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <span class="preloader-logo">MANAL</span>
+            <span class="preloader-sub">STUDIO</span>
+            <div class="preloader-line"></div>
+        </div>
+    </div>
+
+    <!-- ================= SCROLL PROGRESS BAR ================= -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ================= BACK TO TOP BUTTON ================= -->
+    <button class="back-to-top-btn" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- COOKIE NOTICE -->
+    <aside class="cookie-notice" id="cookieNotice" aria-label="Cookie notice">
+        <p>На&nbsp;сайте используются файлы cookie для работы сайта и&nbsp;анализа посещаемости. <a href="#footer-legal">Политика конфиденциальности</a></p>
+        <div class="cookie-actions">
+            <button class="cookie-reject" id="cookieReject" type="button">Отклонить</button>
+            <button id="cookieAccept" type="button">Принять</button>
+        </div>
+    </aside>
+<script>
+    <!-- ================= JAVASCRIPT (LANGUAGE 3: LOGIC) ================= -->
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // ================= 1. PRELOADER =================
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        const navigationEntry = performance.getEntriesByType('navigation')[0];
+        const arrivedFromSite = document.referrer.startsWith(window.location.origin)
+            && navigationEntry?.type === 'navigate';
+
+        if (arrivedFromSite) {
+            preloader.classList.add('hidden');
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 800);
+        });
+        // احتياطي: إذا تأخر التحميل أكثر من 3 ثوانٍ
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 3000);
+    }
+
+    // ================= 2. SCROLL PROGRESS BAR =================
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (scrollProgress) {
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        }, { passive: true });
+    }
+
+    // ================= 3. HEADER SCROLL EFFECT =================
+    const header = document.getElementById('header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+    }
+
+    // ================= 4. SCROLL REVEAL =================
+    const revealElements = document.querySelectorAll(
+        '.section-black, .section-cream, .hero-content, .career-item, .philosophy-copy, .service-copy'
+    );
+    
+    if ('IntersectionObserver' in window && revealElements.length) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => {
+            el.classList.add('reveal-on-scroll');
+            revealObserver.observe(el);
+        });
+    }
+
+    // ================= 5. BACK TO TOP BUTTON =================
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('visible', window.scrollY > 400);
+        }, { passive: true });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // ================= 6. HERO SLIDESHOW =================
+    const heroSlides = Array.from(document.querySelectorAll('.hero-slide'));
+    const heroSlider = document.getElementById('heroSlider');
+    let heroIndex = 0;
+    let heroTimer = null;
+
+    const showHeroSlide = (index) => {
+        heroSlides.forEach((slide, slideIndex) => {
+            const isActive = slideIndex === index;
+            slide.classList.toggle('active', isActive);
+            slide.setAttribute('aria-hidden', String(!isActive));
+        });
+    };
+
+    const nextHeroSlide = () => {
+        if (!heroSlides.length) return;
+        heroIndex = (heroIndex + 1) % heroSlides.length;
+        showHeroSlide(heroIndex);
+    };
+
+    const startHeroSlider = () => {
+        if (!heroSlides.length) return;
+        clearInterval(heroTimer);
+        heroTimer = setInterval(nextHeroSlide, 3000);
+    };
+
+    if (heroSlider && heroSlides.length > 1) {
+        heroSlider.addEventListener('click', () => {
+            nextHeroSlide();
+            startHeroSlider();
+        });
+        startHeroSlider();
+    }
+
+    // ================= 7. FULLSCREEN MENU =================
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const fullscreenMenu = document.getElementById('fullscreenMenu');
+
+    const setMenuState = (open) => {
+        if (!fullscreenMenu || !menuToggle) return;
+        fullscreenMenu.classList.toggle('active', open);
+        menuToggle.classList.toggle('is-open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+        menuToggle.setAttribute('aria-expanded', String(open));
+    };
+
+    if (menuToggle && closeMenu && fullscreenMenu) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.addEventListener('click', () => setMenuState(true));
+        closeMenu.addEventListener('click', () => setMenuState(false));
+
+        document.querySelectorAll('.menu-links a').forEach(link => {
+            link.addEventListener('click', () => setMenuState(false));
+        });
+    }
+
+    // ================= 8. LANGUAGE PICKER =================
+    const langToggle = document.getElementById('langToggle');
+    const languagePicker = document.getElementById('languagePicker');
+    const languageMenu = document.getElementById('languageMenu');
+    const languageOptions = document.querySelectorAll('.language-option');
+    const supportedLanguages = ['EN', 'AR', 'SV'];
+    const savedLanguage = localStorage.getItem('manal-language');
+    let currentLang = supportedLanguages.includes(savedLanguage) ? savedLanguage : 'EN';
+
+    const setLanguageMenuState = (open) => {
+        if (!languageMenu || !langToggle) return;
+        languageMenu.classList.toggle('open', open);
+        langToggle.setAttribute('aria-expanded', String(open));
+    };
+
+    const applyLanguage = (language) => {
+        currentLang = language;
+        document.documentElement.lang = language.toLowerCase();
+        
+        const langText = langToggle.querySelector('.lang-text');
+        if (langText) {
+            langText.textContent = language;
+        } else {
+            langToggle.textContent = language;
+        }
+        
+        langToggle.setAttribute('aria-label', `Choose language. Current language: ${language}`);
+        languageOptions.forEach(option => option.classList.toggle('selected', option.dataset.language === language));
+        
+        document.querySelectorAll('[data-en]').forEach(el => {
+            const translation = el.getAttribute(`data-${language.toLowerCase()}`);
+            if (translation) {
+                el.innerHTML = translation;
+            }
+        });
+        
+        document.title = language === 'AR'
+            ? 'منال استوديو | تصوير زفاف وحكايات بصرية'
+            : language === 'SV'
+                ? 'MANAL STUDIO | Bröllop och visuellt berättande'
+                : 'MANAL STUDIO | Wedding & Visual Storytelling';
+        
+        localStorage.setItem('manal-language', language);
+    };
+
+    if (langToggle && languageMenu) {
+        applyLanguage(currentLang);
+        
+        langToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            setLanguageMenuState(!languageMenu.classList.contains('open'));
+        });
+
+        languageOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                applyLanguage(option.dataset.language);
+                setLanguageMenuState(false);
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+            if (languagePicker && !languagePicker.contains(event.target)) {
+                setLanguageMenuState(false);
+            }
+        });
+    }
+
+    // ================= 9. ESCAPE KEY =================
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            if (fullscreenMenu && fullscreenMenu.classList.contains('active')) {
+                setMenuState(false);
+            }
+            if (languageMenu && languageMenu.classList.contains('open')) {
+                setLanguageMenuState(false);
+            }
+        }
+    });
+
+    // ================= 10. COOKIE NOTICE =================
+    const cookieNotice = document.getElementById('cookieNotice');
+    const cookieAccept = document.getElementById('cookieAccept');
+    const cookieReject = document.getElementById('cookieReject');
+    const cookieConsentKey = 'manal-cookie-consent';
+
+    const closeCookieNotice = (choice) => {
+        try {
+            localStorage.setItem(cookieConsentKey, choice);
+        } catch (error) {}
+        if (cookieNotice) cookieNotice.hidden = true;
+    };
+
+    if (cookieNotice) {
+        try {
+            cookieNotice.hidden = Boolean(localStorage.getItem(cookieConsentKey));
+        } catch (error) {
+            cookieNotice.hidden = false;
+        }
+        if (cookieAccept) cookieAccept.addEventListener('click', () => closeCookieNotice('accepted'));
+        if (cookieReject) cookieReject.addEventListener('click', () => closeCookieNotice('rejected'));
+    }
+
+    // ================= 11. IMAGE LOADING =================
+    document.querySelectorAll('img').forEach(image => {
+        image.loading = image.closest('.hero-bg, .cta-bg') ? 'eager' : 'lazy';
+        image.addEventListener('error', () => image.classList.add('image-error'), { once: true });
+    });
+
+});</script>
+<link rel="stylesheet" href="assets/css/photography-effects.css">
+<script src="assets/js/photography-effects.js"></script>
+</body>
+</html>

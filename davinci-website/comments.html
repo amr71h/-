@@ -1,0 +1,1086 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Client reviews for Manal Studio wedding photography and visual storytelling.">
+    <title>Comments | MANAL STUDIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ============================================================
+           DESIGN SYSTEM & VARIABLES (MERGED: Black + Dark Brown + Cream)
+           ============================================================ */
+        :root {
+            --black: #000000;
+            --cream: #f3eee8;
+            --white: #fff;
+            --muted: rgba(243, 238, 232, 0.64);
+            --line: rgba(196, 154, 108, 0.22);
+            --brown-deep: #1A0F0A;
+            --brown-mid: #2C1A12;
+            --brown-accent: #8B5A3C;
+            --brown-light: #C49A6C;
+            --serif: 'Playfair Display', serif;
+            --sans: 'Montserrat', sans-serif;
+            --arabic: 'Noto Sans Arabic', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; background: #000; }
+        body {
+            min-width: 320px;
+            background: linear-gradient(180deg, #000000 0%, #1A0F0A 50%, #0D0705 100%);
+            color: var(--cream);
+            font: 300 16px/1.6 var(--sans);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        body.locked { overflow: hidden; }
+        a { color: inherit; text-decoration: none; transition: all 0.3s ease; }
+        button, input, textarea { font: inherit; }
+        img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+        html[lang="ar"] body { font-family: var(--arabic); direction: rtl; }
+
+        .skip-link {
+            position: fixed;
+            top: -4rem;
+            left: 1rem;
+            z-index: 99;
+            padding: .7rem 1rem;
+            background: var(--cream);
+            color: var(--black);
+            font-size: 12px;
+            transition: top 0.3s ease;
+        }
+        .skip-link:focus { top: 1rem; }
+
+        /* ============================================================
+           HEADER (PROFESSIONAL - AWWWARDS LEVEL)
+           ============================================================ */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            height: 88px;
+            padding: 0 5vw;
+            background: linear-gradient(180deg, #000000 0%, #1A0F0A 100%);
+            color: var(--cream);
+            border-bottom: 1px solid rgba(196, 154, 108, 0.15);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: headerFadeIn 0.8s ease-out;
+        }
+
+        @keyframes headerFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header.scrolled {
+            background: linear-gradient(180deg, rgba(0,0,0,0.98) 0%, rgba(26,15,10,0.98) 100%);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            border-bottom-color: rgba(196, 154, 108, 0.35);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex: 1;
+        }
+
+        /* === ANIMATED MENU TOGGLE === */
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .menu-toggle::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: rgba(139, 90, 60, 0.2);
+            opacity: 0;
+            transform: scale(0.7);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .menu-toggle:active::before { opacity: 1; transform: scale(1); }
+
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 26px;
+            height: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-icon span {
+            display: block;
+            height: 2px;
+            background-color: var(--cream);
+            border-radius: 2px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            transform-origin: center;
+        }
+
+        .menu-icon span:nth-child(1) { width: 100%; }
+        .menu-icon span:nth-child(2) { width: 70%; }
+        .menu-icon span:nth-child(3) { width: 100%; }
+
+        .menu-toggle:active .menu-icon span { background-color: var(--brown-light); }
+        .menu-toggle:active .menu-icon span:nth-child(2) { width: 100%; }
+
+        .menu-toggle.is-open .menu-icon span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+            background-color: var(--brown-light);
+        }
+        .menu-toggle.is-open .menu-icon span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        .menu-toggle.is-open .menu-icon span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+            background-color: var(--brown-light);
+        }
+
+        /* === LOGO === */
+        .logo { flex: 0 0 auto; display: flex; justify-content: center; }
+
+        .logo a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: var(--cream);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(196, 154, 108, 0.4);
+            border-radius: 50%;
+            color: var(--brown-light);
+            font-size: 1rem;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(139, 90, 60, 0.25);
+            transform: scale(0);
+            border-radius: 50%;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .logo a:active .logo-icon::before { transform: scale(1); }
+        .logo a:active .logo-icon {
+            border-color: var(--brown-light);
+            transform: rotate(360deg);
+            color: var(--cream);
+        }
+
+        .logo-text { display: flex; flex-direction: column; line-height: 0.9; }
+
+        .logo-text strong {
+            font-family: var(--serif);
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            display: block;
+            transition: color 0.4s ease;
+            color: var(--cream);
+        }
+
+        .logo-text small {
+            font-family: var(--sans);
+            font-size: 0.49rem;
+            letter-spacing: 0.43em;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-top: 5px;
+            display: block;
+            color: var(--brown-light);
+            transition: letter-spacing 0.4s ease, color 0.4s ease;
+        }
+
+        .logo a:active .logo-text strong { color: var(--brown-light); }
+        .logo a:active .logo-text small { letter-spacing: 0.6em; }
+
+        /* === DESKTOP NAV === */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: clamp(12px, 1.7vw, 27px);
+            margin-left: auto;
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            position: relative;
+            padding: 8px 0;
+            opacity: 0.66;
+            transition: opacity 0.3s ease, color 0.3s ease;
+            color: var(--cream);
+        }
+
+        nav a::after {
+            position: absolute;
+            right: 0;
+            bottom: 1px;
+            left: 0;
+            height: 1px;
+            background: var(--brown-light);
+            content: '';
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.25s ease;
+        }
+
+        nav a:hover, nav a.active { opacity: 1; color: var(--brown-light); }
+        nav a:hover::after, nav a.active::after { transform: scaleX(1); transform-origin: left; }
+
+        /* === HEADER RESPONSIVE === */
+        @media (max-width: 760px) {
+            .header { height: 76px; padding: 0 6vw; gap: 12px; }
+            .header-left { gap: 0.6rem; }
+            .menu-toggle { width: 40px; height: 40px; padding: 8px; }
+            .lang-btn { padding: 0.4rem 0.8rem; font-size: 0.75rem; gap: 0.4rem; }
+            .lang-globe { font-size: 0.75rem; }
+            .lang-chevron { font-size: 0.5rem; }
+            .lang-dropdown { min-width: 160px; left: -20px; }
+            .logo-icon { width: 36px; height: 36px; font-size: 0.85rem; }
+            .logo-text strong { font-size: 1.1rem; letter-spacing: 0.1em; }
+            .logo-text small { font-size: 0.42rem; letter-spacing: 0.4em; }
+            nav { display: none; }
+        }
+
+        /* === MOBILE MENU OVERLAY === */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10vw;
+            background: linear-gradient(180deg, #000000 0%, #1A0F0A 50%, #000000 100%);
+            color: var(--cream);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .mobile-menu.open { opacity: 1; pointer-events: auto; }
+
+        .mobile-menu a {
+            width: max-content;
+            margin: 8px 0;
+            font: 400 clamp(1.9rem, 7vw, 3.4rem)/1.15 var(--serif);
+            color: var(--cream);
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease, padding 0.3s ease;
+        }
+        .mobile-menu.open a {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .mobile-menu.open a:nth-child(1) { transition-delay: 0.05s; }
+        .mobile-menu.open a:nth-child(2) { transition-delay: 0.10s; }
+        .mobile-menu.open a:nth-child(3) { transition-delay: 0.15s; }
+        .mobile-menu.open a:nth-child(4) { transition-delay: 0.20s; }
+        .mobile-menu.open a:nth-child(5) { transition-delay: 0.25s; }
+        .mobile-menu.open a:nth-child(6) { transition-delay: 0.30s; }
+        .mobile-menu.open a:nth-child(7) { transition-delay: 0.35s; }
+        .mobile-menu.open a:nth-child(8) { transition-delay: 0.40s; }
+        .mobile-menu a:hover, .mobile-menu a:active { color: var(--brown-light); padding-left: 15px; }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 5vw;
+            border: 0;
+            background: none;
+            color: var(--cream);
+            font-size: 42px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .close-menu:hover, .close-menu:active { color: var(--brown-light); transform: rotate(90deg); }
+
+        .mobile-socials {
+            display: flex;
+            gap: 24px;
+            margin-top: 36px;
+            font-size: 20px;
+        }
+        .mobile-socials a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(196, 154, 108, 0.45);
+            border-radius: 50%;
+            color: var(--cream);
+            opacity: 1;
+            transform: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .mobile-socials a:hover, .mobile-socials a:active {
+            color: var(--brown-light);
+            border-color: var(--brown-light);
+            background: rgba(139, 90, 60, 0.2);
+        }
+
+        /* ============================================================
+           REVIEWS (MERGED: Black + Brown + Cream)
+           ============================================================ */
+        .reviews-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: clamp(64px,9vw,118px) 6vw clamp(80px,11vw,145px);
+        }
+
+        .reviews-action {
+            display: flex;
+            justify-content: center;
+            margin-bottom: clamp(58px,8vw,100px);
+        }
+
+        .link-button {
+            padding-bottom: 4px;
+            border: 0;
+            border-bottom: 1px solid var(--brown-light);
+            background: transparent;
+            color: var(--cream);
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            transition: opacity .2s, color .2s, border-color .2s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .link-button:hover, .link-button:active {
+            color: var(--brown-light);
+            border-color: var(--brown-light);
+            opacity: 1;
+        }
+
+        .review-list {
+            border-top: 1px solid var(--line);
+        }
+
+        .review {
+            display: grid;
+            grid-template-columns: 142px minmax(0,1fr);
+            gap: clamp(26px,5vw,72px);
+            padding: clamp(25px,4vw,44px) 0;
+            border-bottom: 1px solid var(--line);
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .65s ease, transform .75s cubic-bezier(.2,.65,.2,1);
+        }
+        .review.visible { opacity: 1; transform: none; }
+
+        .avatar {
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: var(--brown-mid);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+        }
+        .avatar img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(.72);
+            transition: filter .35s, transform .6s;
+        }
+        .review:hover .avatar img, .review:active .avatar img {
+            filter: saturate(1);
+            transform: scale(1.04);
+        }
+
+        .review-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .review h2 {
+            margin-bottom: 7px;
+            font: 400 clamp(1.65rem,2.5vw,2.25rem)/1.12 var(--serif);
+            color: var(--cream);
+        }
+
+        .review .handle {
+            display: inline-block;
+            width: max-content;
+            margin-bottom: 12px;
+            color: var(--brown-light);
+            font-size: 11px;
+            letter-spacing: .04em;
+            transition: color 0.3s ease;
+        }
+        .review .handle:hover, .review .handle:active { color: var(--cream); }
+
+        .review p {
+            max-width: 610px;
+            color: rgba(243, 238, 232, 0.75);
+            font-size: 13px;
+            line-height: 1.78;
+        }
+
+        .reviews-bottom {
+            display: flex;
+            justify-content: center;
+            margin-top: clamp(55px,7vw,85px);
+        }
+
+        /* ============================================================
+           FOOTER (MERGED: Black + Brown + Cream)
+           ============================================================ */
+        .footer {
+            padding: 70px 6vw 76px;
+            background: linear-gradient(180deg, #000000 0%, #1A0F0A 100%);
+            color: var(--cream);
+            text-align: center;
+            border-top: 1px solid rgba(196, 154, 108, 0.25);
+        }
+
+        .back-top {
+            display: inline-block;
+            margin-bottom: 33px;
+            font-size: 21px;
+            color: var(--cream);
+            transition: all 0.3s ease;
+        }
+        .back-top:hover, .back-top:active { color: var(--brown-light); transform: translateY(-4px); }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 27px;
+            margin-bottom: 25px;
+            font-size: 19px;
+        }
+        .socials a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(196, 154, 108, 0.45);
+            border-radius: 50%;
+            color: var(--cream);
+            transition: all 0.3s ease;
+        }
+        .socials a:hover, .socials a:active {
+            color: var(--brown-light);
+            border-color: var(--brown-light);
+            background: rgba(139, 90, 60, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .footer p {
+            margin-top: 4px;
+            color: var(--muted);
+            font-size: 11px;
+            letter-spacing: .04em;
+        }
+
+        /* ============================================================
+           DIALOG (MERGED: Black + Brown + Cream)
+           ============================================================ */
+        .dialog {
+            position: fixed;
+            inset: 0;
+            z-index: 3000;
+            display: grid;
+            place-items: center;
+            padding: 22px;
+            background: rgba(0, 0, 0, .76);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .25s;
+        }
+        .dialog.open { opacity: 1; pointer-events: auto; }
+
+        .dialog-card {
+            position: relative;
+            width: min(100%, 590px);
+            max-height: calc(100vh - 44px);
+            overflow: auto;
+            padding: clamp(28px,5vw,52px);
+            background: linear-gradient(180deg, #120A06 0%, #1A0F0A 100%);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            transform: translateY(18px);
+            transition: transform .28s;
+        }
+        .dialog.open .dialog-card { transform: none; }
+
+        .dialog-card h2 {
+            margin-bottom: 10px;
+            font: 400 clamp(2.2rem,4.5vw,3.7rem)/1 var(--serif);
+            text-transform: uppercase;
+            color: var(--cream);
+        }
+        .dialog-card > p {
+            margin-bottom: 28px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .dialog-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            border: 0;
+            background: none;
+            color: var(--cream);
+            cursor: pointer;
+            font-size: 32px;
+            line-height: 1;
+            transition: color 0.3s ease, transform 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .dialog-close:hover, .dialog-close:active { color: var(--brown-light); transform: rotate(90deg); }
+
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .review-form input,
+        .review-form textarea {
+            width: 100%;
+            border: 0;
+            border-bottom: 1px solid rgba(196, 154, 108, 0.5);
+            border-radius: 0;
+            outline: 0;
+            background: transparent;
+            color: var(--cream);
+            padding: 14px 0;
+            font-size: 13px;
+            transition: border-color .2s;
+        }
+        .review-form input:focus,
+        .review-form textarea:focus {
+            border-color: var(--brown-light);
+        }
+        .review-form input::placeholder,
+        .review-form textarea::placeholder {
+            color: rgba(243, 238, 232, 0.4);
+        }
+
+        .review-form textarea { min-height: 125px; resize: vertical; }
+
+        .form-button {
+            min-height: 57px;
+            margin-top: 9px;
+            border: 1px solid var(--brown-accent);
+            background: var(--brown-accent);
+            color: var(--white);
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            transition: background .25s, transform .25s, border-color .25s, color .25s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .form-button:hover, .form-button:active {
+            background: var(--brown-light);
+            border-color: var(--brown-light);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .honeypot {
+            position: absolute !important;
+            left: -9999px !important;
+            opacity: 0 !important;
+        }
+
+        /* ============================================================
+           ADVANCED ANIMATIONS
+           ============================================================ */
+
+        /* === PRELOADER === */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: linear-gradient(180deg, #000000 0%, #1A0F0A 50%, #000000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .preloader.hidden { opacity: 0; visibility: hidden; }
+        .preloader-content { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+        .preloader-logo {
+            font-family: var(--serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            color: var(--cream);
+            text-transform: uppercase;
+            animation: preloaderFadeIn 1s ease-out;
+        }
+        .preloader-sub {
+            font-family: var(--sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.6em;
+            color: var(--brown-light);
+            text-transform: uppercase;
+            animation: preloaderFadeIn 1s ease-out 0.3s backwards;
+        }
+        .preloader-line {
+            width: 80px;
+            height: 1px;
+            background: var(--brown-light);
+            margin-top: 1rem;
+            animation: preloaderLine 1.5s ease-in-out infinite;
+        }
+        @keyframes preloaderFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes preloaderLine {
+            0%, 100% { width: 40px; opacity: 0.5; }
+            50% { width: 80px; opacity: 1; }
+        }
+
+        /* === SCROLL PROGRESS BAR === */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--brown-accent), var(--brown-light));
+            z-index: 9998;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px rgba(196, 154, 108, 0.5);
+        }
+
+        /* === BACK TO TOP === */
+        .back-to-top-btn {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 900;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid var(--brown-light);
+            background: linear-gradient(180deg, #000000 0%, #1A0F0A 100%);
+            color: var(--brown-light);
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            -webkit-tap-highlight-color: transparent;
+        }
+        .back-to-top-btn.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .back-to-top-btn:active { transform: scale(0.9); background: var(--brown-accent); color: var(--white); }
+
+        /* === TOUCH FEEDBACK === */
+        .menu-toggle:active, .mobile-menu a:active, .socials a:active, .back-top:active, .link-button:active, .form-button:active, .dialog-close:active {
+            transform: scale(0.95);
+        }
+
+        /* === RIPPLE EFFECT === */
+        .ripple { position: relative; overflow: hidden; }
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(196, 154, 108, 0.4);
+            transform: scale(0);
+            animation: rippleAnimation 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            pointer-events: none;
+        }
+        @keyframes rippleAnimation {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+        /* === PAGE TRANSITION (Fade In) === */
+        .page-transition { animation: pageFadeIn 0.8s ease-out; }
+        @keyframes pageFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ============================================================
+           RESPONSIVE (MOBILE)
+           ============================================================ */
+        @media (max-width: 760px) {
+            .header { height: 76px; padding: 0 6vw; }
+            nav { display: none; }
+            .reviews-page { padding: 58px 7vw 78px; }
+            .reviews-action { justify-content: flex-start; margin-bottom: 54px; }
+            .review { grid-template-columns: 94px minmax(0,1fr); gap: 22px; }
+            .review h2 { font-size: 1.65rem; }
+            .review p { font-size: 12px; }
+            .dialog-card { padding: 37px 25px 28px; }
+            .preloader-logo { font-size: 2rem; }
+            .back-to-top-btn { bottom: 1rem; right: 1rem; width: 44px; height: 44px; }
+        }
+
+        @media (max-width: 390px) {
+            .review { grid-template-columns: 76px minmax(0,1fr); gap: 16px; }
+        }
+
+        /* === REDUCED MOTION === */
+        @media (prefers-reduced-motion: reduce) {
+            .review { opacity: 1; transform: none; transition: none; }
+            .preloader-line { animation: none; }
+            .header { animation: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ================= SCROLL PROGRESS BAR ================= -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <a class="skip-link" href="#reviews">Skip to reviews</a>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header" id="top">
+        <div class="header-left">
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+                <span class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </div>
+        <div class="logo">
+            <a href="index.html" aria-label="MANAL STUDIO home">
+                <span class="logo-icon">
+                    <i class="fas fa-camera-retro"></i>
+                </span>
+                <span class="logo-text">
+                    <strong>MANAL</strong>
+                    <small>STUDIO</small>
+                </span>
+            </a>
+        </div>
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="store.html">Store</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="history.html">History</a>
+            <a href="service.html">Services</a>
+            <a href="comments.html" class="active">Comments</a>
+            <a href="contacts.html">Contacts</a>
+        </nav>
+    </header>
+
+    <!-- ================= MOBILE MENU ================= -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <button class="close-menu" id="closeMenu" type="button" aria-label="Close menu">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="store.html">Store</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="history.html">History</a>
+        <a href="service.html">Services</a>
+        <a href="comments.html">Comments</a>
+        <a href="contacts.html">Contacts</a>
+        <div class="mobile-socials">
+            <a href="mailto:alkamelamr1@gmail.com" aria-label="Email Manal Studio"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+    </div>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main id="reviews" class="reviews-page">
+        <div class="reviews-action">
+            <button class="link-button" data-open-dialog type="button">Leave review</button>
+        </div>
+        <section class="review-list" aria-label="Client reviews">
+            <article class="review">
+                <div class="avatar"><img src="assets/images/portfolio/24-1639331309653-5d3dc5e1486b.jpg" alt="Client portrait"></div>
+                <div class="review-content">
+                    <h2>Ayana</h2>
+                    <a class="handle" href="mailto:alkamelamr1@gmail.com">@client</a>
+                    <p>The photos are simply amazing. Manal Studio has a beautiful eye for emotion and detail — one hundred percent!</p>
+                </div>
+            </article>
+            <article class="review">
+                <div class="avatar"><img src="assets/images/portfolio/21-1639331594780-73c507b40b9e.jpg" alt="Client wedding moment"></div>
+                <div class="review-content">
+                    <h2>Jenneta</h2>
+                    <p>The best photographer! Each photograph is more beautiful than the last.</p>
+                </div>
+            </article>
+            <article class="review">
+                <div class="avatar"><img src="assets/images/portfolio/01-1519741497674-611481863552.jpg" alt="Client wedding portrait"></div>
+                <div class="review-content">
+                    <h2>Vepa M</h2>
+                    <p>Thank you so much for the wonderful photographs. They turned out natural, warm, and full of life. It was so easy and pleasant to work together.</p>
+                </div>
+            </article>
+            <article class="review">
+                <div class="avatar"><img src="assets/images/portfolio/05-1544078751-58fee2d8a03b.jpg" alt="Client love story moment"></div>
+                <div class="review-content">
+                    <h2>Maya S</h2>
+                    <p>Thank you very much! The very best photographer.</p>
+                </div>
+            </article>
+            <article class="review">
+                <div class="avatar"><img src="assets/images/portfolio/15-1488426862026-3ee34a7d66df.jpg" alt="Client portrait"></div>
+                <div class="review-content">
+                    <h2>Setayesh</h2>
+                    <p>I'm so happy with these pictures. Thank you so much — it was wonderful and they look very beautiful.</p>
+                </div>
+            </article>
+        </section>
+        <div class="reviews-bottom">
+            <button class="link-button" data-open-dialog type="button">Leave review</button>
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <a class="back-top" href="#top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></a>
+        <div class="socials">
+            <a href="mailto:alkamelamr1@gmail.com" aria-label="Email Manal Studio"><i class="fa-regular fa-envelope"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.pinterest.com/" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <p>Manal Studio</p>
+        <p>Wedding & visual storytelling across the Arab world and Europe</p>
+    </footer>
+
+    <!-- ================= BACK TO TOP BUTTON ================= -->
+    <button class="back-to-top-btn" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ================= DIALOG (Review Form) ================= -->
+    <div class="dialog" id="reviewDialog" role="dialog" aria-modal="true" aria-labelledby="reviewDialogTitle" aria-hidden="true">
+        <div class="dialog-card">
+            <button class="dialog-close" id="closeDialog" type="button" aria-label="Close review form">&times;</button>
+            <h2 id="reviewDialogTitle">Leave review</h2>
+            <p>Your review will be sent directly to Manal Studio.</p>
+            <form class="review-form" action="https://formsubmit.co/alkamelamr1@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Manal Studio review">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="form_type" value="Client review">
+                <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off">
+                <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
+                <input type="text" name="contacts" placeholder="Phone number or email" autocomplete="email" required>
+                <textarea name="review" placeholder="Your message" required></textarea>
+                <button class="form-button" type="submit">Send review</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/i18n.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // ================= SCROLL PROGRESS BAR =================
+            const scrollProgress = document.getElementById('scrollProgress');
+            if (scrollProgress) {
+                window.addEventListener('scroll', () => {
+                    const scrollTop = window.scrollY;
+                    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrollPercent = (scrollTop / docHeight) * 100;
+                    scrollProgress.style.width = scrollPercent + '%';
+                }, { passive: true });
+            }
+
+            // ================= HEADER SCROLL EFFECT =================
+            const header = document.querySelector('.header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                }, { passive: true });
+            }
+
+            // ================= SCROLL REVEAL =================
+            const revealElements = document.querySelectorAll('.review');
+            if ('IntersectionObserver' in window && revealElements.length) {
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12 });
+                revealElements.forEach(el => revealObserver.observe(el));
+            }
+
+            // ================= BACK TO TOP =================
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', () => {
+                    backToTop.classList.toggle('visible', window.scrollY > 400);
+                }, { passive: true });
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // ================= MENU TOGGLE =================
+            const menuToggle = document.getElementById('menuToggle');
+            const closeButton = document.getElementById('closeMenu');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const dialog = document.getElementById('reviewDialog');
+            const closeDialog = document.getElementById('closeDialog');
+            let trigger;
+
+            function setMenu(open) {
+                if (!mobileMenu || !menuToggle) return;
+                mobileMenu.classList.toggle('open', open);
+                menuToggle.classList.toggle('is-open', open);
+                menuToggle.setAttribute('aria-expanded', String(open));
+                mobileMenu.setAttribute('aria-hidden', String(!open));
+                document.body.classList.toggle('locked', open || dialog.classList.contains('open'));
+            }
+
+            function setDialog(open) {
+                if (!dialog) return;
+                dialog.classList.toggle('open', open);
+                dialog.setAttribute('aria-hidden', String(!open));
+                document.body.classList.toggle('locked', open || mobileMenu.classList.contains('open'));
+                if (open) {
+                    setTimeout(() => dialog.querySelector('input[name="name"]')?.focus(), 100);
+                } else if (trigger) {
+                    trigger.focus();
+                }
+            }
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    const isOpen = mobileMenu?.classList.contains('open');
+                    setMenu(!isOpen);
+                });
+            }
+            if (closeButton) closeButton.addEventListener('click', () => setMenu(false));
+            if (mobileMenu) {
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => setMenu(false));
+                });
+            }
+
+            // ================= REVIEW DIALOG =================
+            document.querySelectorAll('[data-open-dialog]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    trigger = btn;
+                    setDialog(true);
+                });
+            });
+            if (closeDialog) closeDialog.addEventListener('click', () => setDialog(false));
+            if (dialog) {
+                dialog.addEventListener('click', (e) => {
+                    if (e.target === dialog) setDialog(false);
+                });
+            }
+
+            // ================= ESCAPE KEY =================
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (dialog.classList.contains('open')) setDialog(false);
+                    else if (mobileMenu.classList.contains('open')) setMenu(false);
+                }
+            });
+
+            // ================= RIPPLE EFFECT =================
+            document.querySelectorAll('.link-button, .form-button, .menu-toggle, .socials a, .back-top, .dialog-close').forEach(el => {
+                el.classList.add('ripple');
+                el.addEventListener('touchstart', (e) => {
+                    const touch = e.touches[0];
+                    const rect = el.getBoundingClientRect();
+                    const x = touch.clientX - rect.left;
+                    const y = touch.clientY - rect.top;
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple-effect';
+                    const size = Math.max(rect.width, rect.height);
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = (x - size / 2) + 'px';
+                    ripple.style.top = (y - size / 2) + 'px';
+                    el.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 700);
+                }, { passive: true });
+            });
+
+            // ================= HAPTIC FEEDBACK =================
+            function triggerHaptic(duration = 10) {
+                if ('vibrate' in navigator) {
+                    try { navigator.vibrate(duration); } catch (e) {}
+                }
+            }
+            document.querySelectorAll('.link-button, .form-button, .menu-toggle, .dialog-close').forEach(btn => {
+                btn.addEventListener('touchstart', () => triggerHaptic(10), { passive: true });
+            });
+
+            // ================= PAGE TRANSITION (Fade In) =================
+            document.body.classList.add('page-transition');
+
+        });
+    </script>
+<link rel="stylesheet" href="assets/css/photography-effects.css">
+<script src="assets/js/photography-effects.js"></script>
+</body>
+</html>
